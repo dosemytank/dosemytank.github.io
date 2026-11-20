@@ -748,17 +748,15 @@ PAGES.info = root => {
   root.append(card(tl('Kopia zapasowa'), 'pack', h('div', { class: 'sub' }, `${tl('Dane są tylko w tej przeglądarce ({0} zbiorn., {1} wpisów). {2}', state.tanks.length, total, state.lastBackup ? tl('Ostatnia kopia: {0}.', relDay(state.lastBackup)) : tl('Nie zrobiono jeszcze kopii.'))}`), guard,
     h('div', { class: 'btnrow', style: 'margin:0' }, h('button', { class: 'btn', onclick: exportJSON }, tl('Zapisz kopię')), h('button', { class: 'btn ghost', onclick: () => $('#imp').click() }, tl('Wczytaj kopię')),
       h('button', { class: 'btn ghost', onclick: exportCSV }, tl('Dziennik do Excela (CSV)')), h('input', { id: 'imp', type: 'file', accept: 'application/json,.json', style: 'display:none', onchange: importJSON }))));
-  // 8.0: strona aplikacji, o aplikacji, zgłoszenia (GitHub Issues z wypełnionym opisem: wersja, przeglądarka, język – bez danych z akwarium)
-  const pl = LANG === 'pl', site = pl ? 'pl/' : '', repo = 'https://github.com/dosemytank/dosemytank.github.io/issues/new';
+  // 8.4: zgłoszenia tylko mailem (bez linków do GitHuba); temat i szablon wypełnione, na dole wersja, język i przeglądarka – bez danych z akwarium
+  const pl = LANG === 'pl', site = pl ? 'pl/' : '';
   const env = `DoseMyTank ${APP_VERSION} · ${LANG} · ${navigator.userAgent} · ${innerWidth}×${innerHeight}${matchMedia('(display-mode: standalone)').matches ? ' · PWA' : ''}`;
-  const issue = (label, title, body) => `${repo}?labels=${label}&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+  const mail = (subj, body) => `mailto:dosemytank@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
   const linkRow = (href, title, sub) => h('a', { class: 'lrow', style: 'color:inherit;text-decoration:none', href, target: href.startsWith('http') ? '_blank' : null, rel: href.startsWith('http') ? 'noopener' : null },
     h('span', {}, title), sub ? h('small', {}, sub) : null, h('i', { html: icon('chevr', 16) }));
   root.append(h('h2', { class: 'h2' }, tl('Pomoc i kontakt')), h('div', { class: 'lrows' },
-    linkRow(issue('bug', tl('Błąd: '), tl('**Co się stało?**\n\n**Czego się spodziewałeś?**\n\n**Kroki**\n1. \n\n**Obliczenie (jeśli dotyczy)** – wklej wynik z przycisku „Kopiuj wynik”\n\n---\n{0}', env)), tl('Zgłoś błąd'), tl('GitHub – wersja i przeglądarka wpiszą się same')),
-    // 8.3: mail – bez konta na GitHubie; temat i opis wypełnione, z wersją i przeglądarką
-    linkRow(`mailto:dosemytank@gmail.com?subject=${encodeURIComponent('DoseMyTank: ')}&body=${encodeURIComponent(tl('Co się stało (albo czego brakuje)?\n\n\nKroki / szczegóły:\n\n\n---\n{0}', env))}`, tl('Napisz maila'), tl('dosemytank@gmail.com – bez konta na GitHubie')),
-    linkRow(issue('enhancement', tl('Pomysł: '), tl('**Co chcesz zrobić?**\n\n**Dlaczego to się przyda?**\n\n---\n{0}', env)), tl('Zaproponuj funkcję albo nawóz do bazy'), ''),
+    linkRow(mail(tl('DoseMyTank – błąd: '), tl('Co się stało?\n\n\nCzego się spodziewałeś?\n\n\nKroki:\n1. \n\nObliczenie (jeśli dotyczy) – wklej wynik z przycisku „Kopiuj wynik”\n\n---\n{0}', env)), tl('Zgłoś błąd'), tl('Mail na dosemytank@gmail.com – wersja i przeglądarka wpiszą się same')),
+    linkRow(mail(tl('DoseMyTank – pomysł: '), tl('Co chcesz zrobić?\n\n\nDlaczego to się przyda?\n\n---\n{0}', env)), tl('Zaproponuj funkcję albo nawóz do bazy'), ''),
     linkRow(site ? site + 'o-aplikacji.html' : 'about.html', tl('O aplikacji'), tl('Jak liczy, skąd dane o nawozach, prywatność')),
     linkRow(site || './', tl('Strona DoseMyTank'), tl('Opis funkcji, instalacja, pytania')),
     // 8.1: wsparcie projektu (Ko-fi) – link zewnętrzny

@@ -1,6 +1,9 @@
 # DoseMyTank (dawniej Akwarysta) – audyt i plan rozwoju (v4.0 PRO, 17.11.2026; historia v3.0 niżej)
 
 
+## Wersja 8.4 – bez linków do GitHuba (20.11.2026)
+- Zgłoszenia tylko mailem (dosemytank@gmail.com): w aplikacji „Zgłoś błąd” i „Zaproponuj funkcję” otwierają mail z szablonem i danymi technicznymi; strony Feedback/Kontakt – dwie karty mailto. Usunięte linki do repozytorium i GitHub Issues ze stron i aplikacji (repozytorium pozostaje publiczne – wymóg darmowego GitHub Pages).
+
 ## Wersja 8.3 – zgłoszenia mailem (20.11.2026)
 - Adres dosemytank@gmail.com: karta „Email / Napisz maila” na stronach Feedback i Kontakt (temat i szablon opisu wypełnione), wzmianka w O aplikacji, wiersz „Napisz maila” w Ustawieniach aplikacji (z wersją, językiem i przeglądarką). GitHub Issues zostają jako druga droga.
 - Historia repozytorium zastąpiona jednym commitem (bez loginu i maila autora).

@@ -2,6 +2,11 @@
    Nowy tekst w kodzie: tl('Tekst po polsku {0}', arg) + wpis tutaj. Placeholdery {0}, {1}… i znaczniki HTML muszą się zgadzać.
    Brakujące i niespójne tłumaczenia wykrywa test: npm test (tests/i18n.test.js). */
 var I18N_EN = {
+"DoseMyTank – błąd: ": "DoseMyTank – bug: ",
+"DoseMyTank – pomysł: ": "DoseMyTank – idea: ",
+"Co się stało?\n\n\nCzego się spodziewałeś?\n\n\nKroki:\n1. \n\nObliczenie (jeśli dotyczy) – wklej wynik z przycisku „Kopiuj wynik”\n\n---\n{0}": "What happened?\n\n\nWhat did you expect?\n\n\nSteps:\n1. \n\nCalculation (if relevant) – paste the result from “Copy result”\n\n---\n{0}",
+"Co chcesz zrobić?\n\n\nDlaczego to się przyda?\n\n---\n{0}": "What would you like to do?\n\n\nWhy is it useful?\n\n---\n{0}",
+"Mail na dosemytank@gmail.com – wersja i przeglądarka wpiszą się same": "Email to dosemytank@gmail.com – app version and browser are filled in for you",
 "Co się stało (albo czego brakuje)?\n\n\nKroki / szczegóły:\n\n\n---\n{0}": "What happened (or what's missing)?\n\n\nSteps / details:\n\n\n---\n{0}",
 "Napisz maila": "Send an email",
 "dosemytank@gmail.com – bez konta na GitHubie": "dosemytank@gmail.com – no GitHub account needed",
