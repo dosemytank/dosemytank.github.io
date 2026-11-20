@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#eef3ef">
+<meta name="description" content="DoseMyTank app: DIY aquarium fertilizer calculator (EI, PPS-Pro, PMDD), commercial fertilizer dosing, RO water remineralization and a planted tank log. Free, no account, works offline.">
+<link rel="canonical" href="https://dosemytank.github.io/app.html">
+<script>
+// język przed wczytaniem manifestu: polska nazwa aplikacji przy instalacji z polskim interfejsem
+(function () { var l = 'en'; try { var q = new URLSearchParams(location.search).get('lang'), s = localStorage.getItem('dmt.lang');
+  l = q === 'pl' || q === 'en' ? q : s ? s : (localStorage.getItem('akwa.v4') || /^pl\b/i.test(navigator.language || '')) ? 'pl' : 'en'; } catch (e) {}
+  document.documentElement.lang = l; document.write('<link rel="manifest" href="' + (l === 'pl' ? 'manifest-pl.json' : 'manifest.json') + '">'); })();
+</script>
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+<title>DoseMyTank – aquarium fertilizer calculator</title>
+</head>
+<body>
+<header class="top">
+  <div class="top-row">
+    <div class="brand"><span class="logo" id="logo"></span>DoseMyTank</div>
+    <button class="iconbtn" id="shareBtn"></button>
+    <button class="iconbtn" id="themeBtn"></button>
+    <button class="iconbtn" id="helpBtn"></button>
+    <button class="iconbtn" id="infoBtn"></button>
+  </div>
+  <button class="tankbtn" id="tankBtn"><span id="tankicon"></span><span id="tankname"></span><span id="chev"></span></button>
+</header>
+<main id="main"></main>
+<nav class="bar" id="nav"></nav>
+<script src="i18n-en.js"></script>
+<script src="i18n.js"></script>
+<script src="products.js"></script>
+<script src="calc.js"></script>
+<script src="chem.js"></script>
+<script src="nawozy-dane.js"></script>
+<script src="logic.js"></script>
+<script src="diag.js"></script>
+<script src="store.js"></script>
+<script src="core.js"></script>
+<script src="app.js"></script>
+<script src="tools.js"></script>
+<script src="clone.js"></script>
+<script src="pro-wspolne.js"></script>
+<script src="receptury.js"></script>
+<script src="woda.js"></script>
+<script src="nawozy-licz.js"></script>
+<script src="kalk-wspolne.js"></script>
+<script src="kalk-makro.js"></script>
+<script src="kalk-mikro.js"></script>
+<script src="kalk-gotowe.js"></script>
+<script src="kalk-receptury.js"></script>
+<script src="kalk-historia.js"></script>
+<script src="kalk-nawoz.js"></script>
+<script src="zakupy.js"></script>
+<script src="nawozenie.js"></script>
+<script src="pomoc.js"></script>
+<script src="odpowiednik.js"></script>
+<script src="pomoc-ekranow.js"></script>
+<script>
+const APP_VERSION = '8.2.1';
+initStore();
+kofiTrack();
+applyTheme();
+$('#logo').innerHTML = icon('leaf', 20); $('#tankicon').innerHTML = icon('drop', 16); $('#chev').innerHTML = icon('chev', 14);
+$('#infoBtn').innerHTML = icon('gear', 20); $('#helpBtn').innerHTML = icon('help', 20); $('#helpBtn').onclick = openHelp;
+// 8.0: etykiety przycisków w języku interfejsu
+[['#themeBtn', tl('Zmień motyw')], ['#helpBtn', tl('Jak używać tego ekranu')], ['#infoBtn', tl('Ustawienia')], ['#shareBtn', tl('Udostępnij link do tego ekranu')]].forEach(([s, t]) => { $(s).setAttribute('aria-label', t); $(s).title = t; });
+// udostępnianie: link do bieżącego ekranu (bez danych użytkownika – tylko adres)
+$('#shareBtn').innerHTML = icon('share', 20);
+$('#shareBtn').onclick = () => {
+  const url = location.origin + location.pathname + location.hash, title = document.title;
+  if (navigator.share) navigator.share({ title, url }).catch(() => {});
+  else if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(() => toast(tl('Skopiowano link do tego ekranu')), () => prompt(tl('Skopiuj link:'), url));
+  else prompt(tl('Skopiuj link:'), url);
+};
+const isDark = () => state.theme === 'dark' || (state.theme === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+const themeIcon = () => { $('#themeBtn').innerHTML = icon(isDark() ? 'sun' : 'moon', 20); };
+themeIcon();
+$('#themeBtn').onclick = () => { state.theme = isDark() ? 'light' : 'dark'; save(); applyTheme(); themeIcon(); };
+$('#infoBtn').onclick = () => go('info');
+$('#tankBtn').onclick = openTankSheet;
+buildNav();
+render();
+document.title = tl('DoseMyTank – kalkulator nawozów do akwarium');
+if (loadNote) setTimeout(() => toast(loadNote, 5000), 400);
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').then(reg => reg.update()).catch(() => {});
+  let reloaded = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => { if (!reloaded && navigator.serviceWorker.controller) { reloaded = true; toast(tl('Zaktualizowano aplikację')); } });
+}
+</script>
+</body>
+</html>

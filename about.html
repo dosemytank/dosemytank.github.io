@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto" data-sw="sw.js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>About DoseMyTank – how the aquarium fertilizer calculator works</title>
+<meta name="description" content="About DoseMyTank: a free, independent planted tank fertilizer calculator. How the calculations work, where product data comes from and what happens to your data.">
+<link rel="canonical" href="https://dosemytank.github.io/about.html">
+<link rel="alternate" hreflang="en" href="https://dosemytank.github.io/about.html">
+<link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/o-aplikacji.html">
+<link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/about.html">
+<meta name="theme-color" content="#0e3b2c">
+<link rel="icon" href="icon-192.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DoseMyTank">
+<meta property="og:title" content="About DoseMyTank">
+<meta property="og:description" content="A free, independent planted tank fertilizer calculator. How it calculates and what happens to your data.">
+<meta property="og:url" content="https://dosemytank.github.io/about.html">
+<meta property="og:image" content="https://dosemytank.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="hero" style="border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./"><span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15"/><path d="M5 19c3-5 6-8 10-10"/></svg></span>DoseMyTank</a>
+      <nav aria-label="Site"><a href="./#features">Features</a><a href="./#faq">FAQ</a><a href="feedback.html">Feedback</a></nav>
+      <a class="lang" href="pl/o-aplikacji.html" hreflang="pl" lang="pl" data-setlang="pl">PL</a>
+      <a class="btn sm" href="app.html">Open app</a>
+    </div>
+  </div>
+</header>
+<main class="page">
+  <article class="wrap prose">
+    <h1>About DoseMyTank</h1>
+    <p>DoseMyTank is a free web app for planted aquarium keepers who mix their own fertilizers or want to know exactly what a commercial fertilizer adds to their tank. It started as a Polish-language tool for local planted tank groups. Since version 8 it's fully available in English, with Polish as a second language.</p>
+    <p>It's an independent, non-commercial project: no ads, no paid version, no account and no tracking. It isn't affiliated with any fertilizer manufacturer or shop.</p>
+
+    <h2>How the calculations work</h2>
+    <ul>
+      <li><b>Molar masses</b> are calculated from chemical formulas using IUPAC 2021 standard atomic weights – never typed in by hand. Every hydrate is a separate form, so MgSO₄·7H₂O and anhydrous MgSO₄ give the same amount of magnesium from different grams.</li>
+      <li><b>Concentrations</b> are in mg/L. In fresh water 1 mg/L = 1 ppm. Hardness uses the German degree: 1 °dH = 10 mg/L CaO (7.15 mg/L Ca or 4.34 mg/L Mg).</li>
+      <li><b>Solubility</b> is checked against values for 20 °C, with a safety margin when several salts share an ion (the common-ion effect).</li>
+      <li><b>Incompatible salts</b> are split into separate bottles: calcium with phosphate or sulfate, iron and other metals with phosphate, ammonium + magnesium + phosphate (struvite), metals with carbonates.</li>
+      <li><b>CO₂</b> is estimated from pH and KH (CO₂ = 3 · KH · 10<sup>(7 − pH)</sup>) and shown as a band that reflects the accuracy of drop tests. <b>Free ammonia</b> uses Emerson et al. (1975).</li>
+      <li><b>Commercial fertilizers</b> use the composition published by the manufacturer or printed on the label, with the source noted. Products without a full published composition are marked as approximate.</li>
+      <li>The calculation engine is covered by automated tests, including checks against hand-calculated reference values and the published PPS-Pro and EI numbers.</li>
+    </ul>
+    <p class="muted">What the app doesn't do: it doesn't predict how much your plants will take up, and it doesn't replace water tests. Treat recommended doses as a starting point and adjust them after testing.</p>
+
+    <h2>Your data</h2>
+    <ul>
+      <li>Everything you enter – tanks, tests, recipes – is stored only in your browser on your device.</li>
+      <li>The app doesn't send your data anywhere and doesn't use cookies or analytics. The site is hosted on GitHub Pages.</li>
+      <li>You can save a backup file and load it on another device in Settings. Clearing your browser data deletes what's stored in the app.</li>
+    </ul>
+
+    <h2>Languages and units</h2>
+    <p>The app follows your browser language on first launch (English or Polish) and remembers your choice; you can switch at any time in Settings, even offline. Calculations use liters, milliliters and grams; when entering a tank volume you can convert from US gallons.</p>
+
+    <h2>Source code and feedback</h2>
+    <p>The source code is public on <a href="https://github.com/dosemytank/dosemytank.github.io">GitHub</a>. Found a mistake in a calculation, a translation that reads oddly, or a missing fertilizer? Please <a href="feedback.html">send feedback</a>.</p>
+  </article>
+</main>
+<footer>
+  <div class="wrap foot">
+    <p>DoseMyTank · version 8.2.1. Results are supporting calculations and don't replace water tests.</p>
+    <nav aria-label="Footer"><a href="./">Home</a><a href="app.html">Open app</a><a href="feedback.html">Feedback</a><a href="pl/o-aplikacji.html" hreflang="pl" lang="pl" data-setlang="pl">Polski</a></nav>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

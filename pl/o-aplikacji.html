@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="auto" data-sw="../sw.js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>O DoseMyTank – jak działa kalkulator nawozów do akwarium</title>
+<meta name="description" content="O DoseMyTank: darmowy, niezależny kalkulator nawozów do akwarium roślinnego. Jak liczy, skąd są dane o nawozach i co dzieje się z Twoimi danymi.">
+<link rel="canonical" href="https://dosemytank.github.io/pl/o-aplikacji.html">
+<link rel="alternate" hreflang="en" href="https://dosemytank.github.io/about.html">
+<link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/o-aplikacji.html">
+<link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/about.html">
+<meta name="theme-color" content="#0e3b2c">
+<link rel="icon" href="../icon-192.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DoseMyTank">
+<meta property="og:title" content="O DoseMyTank">
+<meta property="og:description" content="Darmowy, niezależny kalkulator nawozów do akwarium roślinnego. Jak liczy i co dzieje się z Twoimi danymi.">
+<meta property="og:url" content="https://dosemytank.github.io/pl/o-aplikacji.html">
+<meta property="og:image" content="https://dosemytank.github.io/img/og-pl.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<header class="hero" style="border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./"><span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15"/><path d="M5 19c3-5 6-8 10-10"/></svg></span>DoseMyTank</a>
+      <nav aria-label="Strona"><a href="./#funkcje">Funkcje</a><a href="./#faq">Pytania</a><a href="kontakt.html">Kontakt</a></nav>
+      <a class="lang" href="../about.html" hreflang="en" lang="en" data-setlang="en">EN</a>
+      <a class="btn sm" href="../app.html?lang=pl">Otwórz aplikację</a>
+    </div>
+  </div>
+</header>
+<main class="page">
+  <article class="wrap prose">
+    <h1>O DoseMyTank</h1>
+    <p>DoseMyTank to darmowa aplikacja dla akwarystów roślinnych, którzy robią własne nawozy z soli albo chcą wiedzieć, co dokładnie dodaje do wody gotowy nawóz. Powstała jako polskie narzędzie dla grup akwarystycznych. Od wersji 8 jest w pełni dostępna po angielsku, a polski pozostaje drugim językiem.</p>
+    <p>To niezależny, niekomercyjny projekt: bez reklam, bez wersji płatnej, bez konta i bez śledzenia. Nie jest związany z żadnym producentem nawozów ani sklepem.</p>
+
+    <h2>Jak liczy</h2>
+    <ul>
+      <li><b>Masy molowe</b> są liczone ze wzorów chemicznych z mas atomowych IUPAC 2021 – nigdy nie są wpisywane ręcznie. Każda forma uwodnienia jest osobną pozycją, więc MgSO₄·7H₂O i bezwodny MgSO₄ dają tyle samo magnezu z innej liczby gramów.</li>
+      <li><b>Stężenia</b> są w mg/l. W wodzie słodkiej 1 mg/l = 1 ppm. Twardość w stopniach niemieckich: 1 °dH = 10 mg/l CaO (7,15 mg/l Ca albo 4,34 mg/l Mg).</li>
+      <li><b>Rozpuszczalność</b> jest sprawdzana dla 20 °C, z zapasem, gdy kilka soli ma wspólny jon.</li>
+      <li><b>Niezgodne sole</b> trafiają do osobnych butelek: wapń z fosforanem lub siarczanem, żelazo i inne metale z fosforanem, amon + magnez + fosforan (struwit), metale z węglanami.</li>
+      <li><b>CO₂</b> jest szacowane z pH i KH (CO₂ = 3 · KH · 10<sup>(7 − pH)</sup>) i pokazywane jako pasmo zgodne z dokładnością testów kropelkowych. <b>Wolny amoniak</b> – wg Emersona i in. (1975).</li>
+      <li><b>Gotowe nawozy</b> mają skład podany przez producenta albo z etykiety, ze wskazaniem źródła. Produkty bez pełnego publicznego składu są oznaczone jako orientacyjne.</li>
+      <li>Obliczenia sprawdzają automatyczne testy, w tym porównanie z wartościami policzonymi ręcznie i z opublikowanymi liczbami PPS-Pro i EI.</li>
+    </ul>
+    <p class="muted">Czego aplikacja nie robi: nie przewiduje, ile składników pobiorą rośliny, i nie zastępuje testów wody. Zalecane dawki są punktem wyjścia, który koryguje się po testach.</p>
+
+    <h2>Twoje dane</h2>
+    <ul>
+      <li>Wszystko, co wpisujesz – akwaria, pomiary, przepisy – zapisuje się tylko w przeglądarce na Twoim urządzeniu.</li>
+      <li>Aplikacja nigdzie nie wysyła danych i nie używa plików cookie ani statystyk odwiedzin. Strona jest hostowana w GitHub Pages.</li>
+      <li>Kopię zapasową zapiszesz do pliku i wczytasz na innym urządzeniu w Ustawieniach. Wyczyszczenie danych przeglądarki usuwa dane aplikacji.</li>
+    </ul>
+
+    <h2>Języki i jednostki</h2>
+    <p>Przy pierwszym uruchomieniu aplikacja dobiera język przeglądarki (polski albo angielski) i zapamiętuje wybór; zmienisz go w każdej chwili w Ustawieniach, także bez internetu. Dotychczasowi użytkownicy zostają przy polskim. Obliczenia są w litrach, mililitrach i gramach.</p>
+
+    <h2>Kod i uwagi</h2>
+    <p>Kod źródłowy jest publiczny w serwisie <a href="https://github.com/dosemytank/dosemytank.github.io">GitHub</a>. Widzisz błąd w obliczeniach, dziwne tłumaczenie albo brakuje nawozu? <a href="kontakt.html">Napisz</a>.</p>
+  </article>
+</main>
+<footer>
+  <div class="wrap foot">
+    <p>DoseMyTank · wersja 8.2.1. Wyniki są obliczeniami pomocniczymi i nie zastępują testów wody.</p>
+    <nav aria-label="Stopka"><a href="./">Strona główna</a><a href="../app.html?lang=pl">Otwórz aplikację</a><a href="kontakt.html">Kontakt</a><a href="../about.html" hreflang="en" lang="en" data-setlang="en">English</a></nav>
+  </div>
+</footer>
+<script src="../site.js"></script>
+</body>
+</html>

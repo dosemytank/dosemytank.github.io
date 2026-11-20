@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto" data-sw="sw.js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DoseMyTank – free aquarium fertilizer calculator for planted tanks</title>
+<meta name="description" content="Free DIY aquarium fertilizer calculator: EI, PPS-Pro and PMDD recipes from dry salts, commercial fertilizer dosing, RO water remineralization and a planted tank log. No sign-up, works offline.">
+<link rel="canonical" href="https://dosemytank.github.io/">
+<link rel="alternate" hreflang="en" href="https://dosemytank.github.io/">
+<link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/">
+<link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/">
+<meta name="theme-color" content="#0e3b2c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:site_name" content="DoseMyTank">
+<meta property="og:title" content="DoseMyTank – Your aquarium. Your formula.">
+<meta property="og:description" content="Make your own planted tank fertilizers from dry salts, calculate nutrient concentrations and remineralize RO water. Free, no sign-up, works offline.">
+<meta property="og:url" content="https://dosemytank.github.io/">
+<meta property="og:image" content="https://dosemytank.github.io/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DoseMyTank: a fertilizer recipe for two bottles and a nitrate chart from the tank log">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DoseMyTank – Your aquarium. Your formula.">
+<meta name="twitter:description" content="Free aquarium tools for planted tank enthusiasts: DIY fertilizer calculator (EI, PPS-Pro, PMDD), commercial fertilizer dosing, RO remineralization.">
+<meta name="twitter:image" content="https://dosemytank.github.io/img/og.png">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"DoseMyTank","url":"https://dosemytank.github.io/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser, installable PWA)","inLanguage":["en","pl"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Aquarium fertilizer calculator for planted tanks: DIY fertilizers from dry salts (EI, PPS-Pro, PMDD), commercial fertilizer dosing, RO water remineralization and a tank log. Works offline, no account."}
+</script>
+</head>
+<body>
+
+<div id="fb" role="status" hidden>
+  <b>You're viewing this page in the Facebook browser.</b>
+  To install the app and keep your data safe, open this link in your regular browser (Chrome or Safari): tap “⋯” in the corner and choose “Open in browser”.
+  <br><button id="copy" type="button" data-done="Copied ✓" data-prompt="Copy the link:">Copy link</button>
+</div>
+<div class="banner" id="altlang" data-lang="pl" hidden lang="pl">Wolisz po polsku? <a href="pl/" data-setlang="pl">Przejdź do polskiej wersji →</a></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./"><span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15"/><path d="M5 19c3-5 6-8 10-10"/></svg></span>DoseMyTank</a>
+      <nav aria-label="Page sections"><a href="#features">Features</a><a href="#example">Example</a><a href="#faq">FAQ</a><a href="about.html">About</a><a class="navkofi" aria-label="Ko-fi" title="Ko-fi" href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v2M12 3v2"/></svg><span>Support</span></a></nav>
+      <a class="lang" href="pl/" hreflang="pl" lang="pl" data-setlang="pl" title="Polska wersja">PL</a>
+      <a class="btn sm" href="app.html">Open app</a>
+    </div>
+    <div class="heroGrid">
+      <div class="heroTxt">
+        <p class="kicker">Free aquarium tools for planted tank enthusiasts</p>
+        <h1>Your aquarium. Your formula.</h1>
+        <p class="sub">Prepare your own fertilizers. Calculate nutrient concentrations. Remineralize RO water. DoseMyTank tells you <b>how many grams of each salt go into the bottle</b>, how many ml to dose and what that adds to your tank in mg/L (ppm).</p>
+        <ul class="free" aria-label="Key facts"><li>Free</li><li>No sign-up</li><li>Works offline</li></ul>
+        <div class="cta">
+          <a class="btn" href="app.html">Open app</a>
+          <button class="btn line" id="install" type="button" hidden>Install on this device</button>
+          <a id="howto" href="#installation">How to install</a>
+        </div>
+        <p class="meta"><span>English and Polish</span><span>Data stays on your device</span><span>No ads</span></p>
+      </div>
+      <div class="crop"><picture><source srcset="img/en/kalkulator-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/en/kalkulator.webp" width="708" height="1718" alt="Make fertilizer: a two-bottle recipe for a 112 L tank – macro from KNO₃, KH₂PO₄, K₂SO₄ and MgSO₄·7H₂O, micro from CSM+B, 30 ml from each bottle three times a week"></picture></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="features">
+  <div class="wrap">
+    <h2>What you can calculate</h2>
+    <p class="lead">Four tools cover what most planted tank keepers need. Each one shows its working: the salts, the grams, the dose and the resulting concentration.</p>
+    <div class="fcards c4">
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/></svg></span>
+        <h3>DIY fertilizer from dry salts</h3>
+        <p>Enter your tank volume, light and CO₂ and choose a plan – the app picks the salts and the dose. You get grams per bottle, ml per dose and the expected weekly increase of NO₃, PO₄, K, Mg and Fe.</p>
+        <ul><li>EI (Estimative Index), PPS-Pro and PMDD recipes, or your own</li><li>Macro and micro bottles, or dry dosing</li><li>Warnings when salts would precipitate (e.g. calcium with phosphate) or not dissolve</li><li>A shopping list with common names (potassium nitrate, Epsom salt…)</li></ul></article>
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>
+        <h3>RO water remineralization</h3>
+        <p>How much gypsum, magnesium sulfate and potassium bicarbonate to add to a batch of RO water for your target GH and KH, with the Ca : Mg ratio you choose.</p>
+        <ul><li>Calcium and magnesium already in your fertilizer are taken into account</li><li>Step-by-step preparation, with a check of GH and KH</li><li>Conductivity (µS/cm) and TDS of the prepared water</li></ul></article>
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="6" width="10" height="15" rx="2"/><path d="M10 3h4v3h-4z"/></svg></span>
+        <h3>Commercial fertilizer dosing</h3>
+        <p>Over 30 fertilizers in the library (Tropica, Seachem, Easy Life, CSM+B and more). Scale the manufacturer's dose to your tank, see what your dose adds in mg/L, or get the ml needed for a target.</p>
+        <ul><li>Compare up to three fertilizers side by side</li><li>Add your own product from its label (% or g/L, K₂O and P₂O₅ converted)</li><li>Entries without a full published composition are marked as approximate</li></ul></article>
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/></svg></span>
+        <h3>Tank log</h3>
+        <p>Water tests, water changes, doses and notes. Charts with your target range, a reminder schedule you can export to your phone's calendar, and a hint on what to check first.</p>
+        <ul><li>Several tanks</li><li>Backup to a file and export to CSV</li></ul></article>
+    </div>
+    <ul class="fchips" aria-label="More tools">
+      <li>Nutrient concentration of a bottle</li><li>DIY clone of a commercial fertilizer</li><li>Correct a test result to target</li><li>Water change calculator</li><li>CO₂ from pH and KH</li><li>Unit converters: N ↔ NO₃, P₂O₅ ↔ PO₄, K₂O ↔ K, °dH ↔ ppm</li><li>Tank volume from dimensions</li><li>PRO: titration, KH lowering with acid, salt build-up</li>
+    </ul>
+    <div class="shots s4">
+      <figure><picture><source srcset="img/en/mineral-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/en/mineral.webp" loading="lazy" width="708" height="3348" alt="RO remineralization: grams of CaSO₄·2H₂O, MgSO₄·7H₂O and KHCO₃ for 45 L of RO water, target GH 6 and KH 3"></picture><figcaption><b>RO remineralization</b><br>Salts for a batch of RO water</figcaption></figure>
+      <figure><picture><source srcset="img/en/gotowe-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/en/gotowe.webp" loading="lazy" width="708" height="1280" alt="Commercial fertilizer: daily dose for a 112 L tank and the increase of K and Fe after one dose and after a week"></picture><figcaption><b>Commercial fertilizers</b><br>Dose and increase per week</figcaption></figure>
+      <figure><picture><source srcset="img/en/wykresy-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/en/wykresy.webp" loading="lazy" width="780" height="1688" alt="Tank log: nitrate NO₃ chart with a 10–30 mg/L target band over three months"></picture><figcaption><b>Tank log</b><br>Nitrate against the target range</figcaption></figure>
+      <figure><picture><source srcset="img/en/korekta-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/en/korekta.webp" loading="lazy" width="780" height="1688" alt="Correct tank parameters: current value and target for nitrate, with the salt to use"></picture><figcaption><b>Correct tank parameters</b><br>From a test result to the target</figcaption></figure>
+      <p class="shotsNote">Screenshots from the app with sample data.</p>
+    </div>
+  </div>
+</section>
+
+<section id="example" class="alt">
+  <div class="wrap">
+    <h2>Example: your first bottle of fertilizer</h2>
+    <div class="example">
+      <div>
+        <ol class="steps">
+          <li><b>Describe your tank</b><span>100 L (26 US gal) of water, low light, no CO₂, 30% water change a week.</span></li>
+          <li><b>Choose a plan</b><span>“Recommended” – a typical starting dose for your light. Lean, More and EI-style plans are one tap away.</span></li>
+          <li><b>Tick the salts you have</b><span>The default set is the four basic salts plus a CSM+B trace mix. Salts that can't share a bottle are split automatically.</span></li>
+          <li><b>Mix and dose</b><span>Weigh the salts into two 500 ml bottles and dose 30 ml from each, three times a week. A bottle lasts about 6 weeks.</span></li>
+          <li><b>Test and adjust</b><span>Test NO₃ and PO₄ before water changes for the first 2–3 weeks, log the results and move the plan up or down.</span></li>
+        </ol>
+      </div>
+      <div class="recipe" aria-label="Recipe calculated by the app for this example">
+        <h3>A · Macro, 500 ml bottle</h3>
+        <table><tr><td>KNO₃ (potassium nitrate)</td><td>4.53 g</td></tr><tr><td>KH₂PO₄ (monopotassium phosphate)</td><td>0.40 g</td></tr><tr><td>K₂SO₄ (potassium sulfate)</td><td>2.03 g</td></tr><tr><td>MgSO₄·7H₂O (Epsom salt)</td><td>11.3 g</td></tr></table>
+        <h3>B · Micro, 500 ml bottle</h3>
+        <table><tr><td>CSM+B trace mix</td><td>0.79 g</td></tr></table>
+        <p>Per week in the tank: NO₃ +5, PO₄ +0.5, K +5, Mg +2, Fe +0.1 mg/L. Values from the app for the inputs on the left.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <h2>For beginners and for experienced dosers</h2>
+    <div class="who">
+      <article><h3>If you're new to dry fertilizers</h3><ul>
+        <li>Start with “Make fertilizer”: answer a few questions and get a complete recipe.</li>
+        <li>Plain-language explanations of GH, KH, ppm, chelates and macro vs micro, plus help screens.</li>
+        <li>Clear warnings: copper with shrimp, ammonium, salts that won't dissolve, acids.</li>
+        <li>Unsure about your plants? The plant problems and algae checklists suggest what to test first.</li></ul></article>
+      <article><h3>If you already know EI and PPS-Pro</h3><ul>
+        <li>Macro and Micro calculators, salt by salt, with your own targets per dose or per week.</li>
+        <li>Every hydrate form (e.g. MgSO₄ vs MgSO₄·7H₂O), salt purity and chelate % from the label.</li>
+        <li>Solubility checks, common-ion effects and automatic bottle splitting.</li>
+        <li>Your own salts, recipes and fertilizer library – exportable as a file.</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="tanks" class="alt">
+  <div class="wrap">
+    <h2>From the author's tanks</h2>
+    <p class="lead">Planted tanks fertilized with salts, using the author's own recipes.</p>
+    <div class="gal">
+      <figure style="flex:1"><img src="img/zbiornik-gupiki.webp" loading="lazy" width="1100" height="1100" alt="Planted aquarium with guppies: feathery green plants on the left, red and rust stem plants in the middle, grass-like plants on the right, a dense carpet in front"></figure>
+      <figure style="flex:2.4"><img src="img/zbiornik-front.webp" loading="lazy" width="1600" height="667" alt="Planted aquarium from the front: dense stem plants in shades of green and rust, low plants in the foreground"></figure>
+      <figure style="flex:.75"><img src="img/zbiornik-z-gory.webp" loading="lazy" width="840" height="1120" alt="Aquarium seen from above along the light: a flowering Bucephalandra and yellow and orange stem plant rosettes"></figure>
+    </div>
+    <p class="kofiband">DoseMyTank is free. If it helped you, <a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v2M12 3v2"/></svg>buy me a coffee on Ko-fi</a></p>
+  </div>
+</section>
+
+<section id="installation">
+  <div class="wrap">
+    <h2>Install and your data</h2>
+    <div class="two">
+      <div>
+        <p style="color:var(--mut);margin-bottom:20px">DoseMyTank is a web app. You can install it on your phone or computer straight from the browser – no app store needed.</p>
+        <div class="os"><h3>iPhone and iPad (Safari)</h3><ol><li>Open this page in Safari (not inside the Facebook app).</li><li>Tap <b>Share</b> (the square with an arrow).</li><li>Choose <b>Add to Home Screen</b>.</li></ol></div>
+        <div class="os"><h3>Android (Chrome)</h3><ol><li>Open this page in Chrome.</li><li>Tap the <b>⋮</b> menu in the top right corner.</li><li>Choose <b>Install app</b> or “Add to Home screen”.</li></ol></div>
+        <div class="os"><h3>Computer (Chrome, Edge)</h3><ol><li>Open the app.</li><li>Click the install icon at the right end of the address bar.</li></ol></div>
+      </div>
+      <div>
+        <ul class="facts">
+          <li>No account, no login. Nothing is sent to a server.</li>
+          <li>Your data is stored in your browser. After the first visit the app works offline, and it updates itself when you're online.</li>
+          <li>Save a backup to a file and load it on another device in Settings.</li>
+        </ul>
+        <div class="note"><b>Your data belongs to this browser.</b> Always open the app from the same home screen icon and make a backup now and then. A new phone or clearing browser data removes it.</div>
+        <div class="note"><b>Acids and chemicals.</b> Whenever a calculation involves acid, the app shows safety rules and a milder option (e.g. 10% vinegar). Add chemicals diluted and one at a time.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>Is DoseMyTank really free?</summary><p>Yes. There's no paid version, no ads and no account. The app is a hobby project and runs entirely in your browser. If you'd like to support further development, you can <a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener">buy me a coffee on Ko-fi</a>.</p></details>
+    <details><summary>Where do I start?</summary><p>Open the app – the first screen is “Make fertilizer”. Enter your tank volume and choose light and CO₂. The recipe and the shopping list appear straight away for a basic set of salts.</p></details>
+    <details><summary>Which dosing methods does it support?</summary><p>EI (Estimative Index), PPS-Pro and PMDD as ready recipes, plus your own targets in mg/L per week or per dose. You can dose from bottles or dry dose straight into the tank. Commercial fertilizers can be combined with your own salts.</p></details>
+    <details><summary>My Epsom salt is MgSO₄·7H₂O, but a recipe says MgSO₄. What now?</summary><p>Each form of a salt is a separate choice, e.g. MgSO₄·7H₂O (heptahydrate, Epsom salt) and anhydrous MgSO₄. Pick the one on your package. The amount of magnesium stays the same – only the grams you weigh out change.</p></details>
+    <details><summary>Can I use gallons?</summary><p>The app calculates in liters and milliliters, as most dosing recipes do. When you enter your tank volume, tap “Tank in gallons? Convert to liters” to convert US gallons.</p></details>
+    <details><summary>Is it ppm or mg/L?</summary><p>For fresh water they're the same: 1 mg/L = 1 ppm. The app shows mg/L; fertilizer concentrates are shown in g/L.</p></details>
+    <details><summary>What's the difference between remineralization and correcting parameters?</summary><p>RO remineralization calculates how much salt to add to a whole batch of RO water before a water change, so it reaches the target GH and KH. Correcting tank parameters calculates how much of a nutrient to add to the water already in the tank to move a test result to your target.</p></details>
+    <details><summary>How accurate are the results?</summary><p>The calculation is exact for the data you enter: molar masses come from the chemical formulas (IUPAC 2021 atomic weights), and the math is covered by automated tests. What you get in the tank also depends on salt purity, your scale, the label composition and drop test accuracy. Solubility of salt mixes is estimated with a safety margin. Some commercial fertilizers don't publish a full composition – those are marked as approximate. The app doesn't predict how much plants will take up – only a water test shows that.</p></details>
+    <details><summary>Will it tell me whether my plants will grow well?</summary><p>No. It calculates what you add to the water. Plant growth also depends on light, CO₂, substrate and species. The recommended doses are a starting point you adjust after testing and watching your plants.</p></details>
+    <details><summary>How do I move my data to a new phone?</summary><p>In Settings, save a backup to a file, then load it on the new phone in the same place. Without a backup the data stays in the old browser.</p></details>
+    <details><summary>I found a bug or have an idea.</summary><p>Please report it on the <a href="feedback.html">feedback page</a>. For bugs, include your phone model, browser and what exactly happened – a screenshot helps.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>About and feedback</h2>
+    <div class="cards2">
+      <a href="about.html"><b>About DoseMyTank →</b><span>What it is, how the calculations work and what happens to your data.</span></a>
+      <a href="feedback.html"><b>Report a bug or suggest a feature →</b><span>Tell us what went wrong or what's missing. Feedback from both beginners and EI veterans is welcome.</span></a>
+      <a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><b>Support DoseMyTank on Ko-fi →</b><span>The app is free, with no ads or account. A coffee helps keep new versions coming.</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>DoseMyTank · version 8.2.1. Results are supporting calculations and don't replace water tests. The author isn't responsible for the effects of dosing fertilizers and chemicals in your tank.</p>
+    <nav aria-label="Footer"><a href="app.html">Open app</a><a href="about.html">About</a><a href="feedback.html">Feedback</a><a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener">Ko-fi</a><a href="pl/" hreflang="pl" lang="pl" data-setlang="pl">Polski</a></nav>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

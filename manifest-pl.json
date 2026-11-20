@@ -1,0 +1,90 @@
+{
+  "id": "./app.html",
+  "name": "DoseMyTank – kalkulator nawozów do akwarium",
+  "short_name": "DoseMyTank",
+  "description": "Kalkulator nawozów z soli (EI, PPS-Pro, PMDD), dawki gotowych nawozów, mineralizacja wody RO i dziennik akwarium roślinnego. Działa offline.",
+  "start_url": "./app.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e3b2c",
+  "theme_color": "#0e3b2c",
+  "lang": "pl",
+  "dir": "ltr",
+  "categories": [
+    "utilities",
+    "lifestyle",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Przygotuj nawóz",
+      "short_name": "Nawóz",
+      "url": "./app.html#/kalkulator/nawoz",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Mineralizacja wody RO",
+      "short_name": "Woda RO",
+      "url": "./app.html#/kalkulator/mineral",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Dziennik akwarium",
+      "short_name": "Dziennik",
+      "url": "./app.html#/dziennik",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "img/kalkulator.webp",
+      "sizes": "708x1830",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Przepis na nawóz w dwóch butelkach"
+    },
+    {
+      "src": "img/wykresy.webp",
+      "sizes": "780x1688",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Dziennik akwarium z wykresem azotanów"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+/* DoseMyTank – kolory, promienie i cienie (7.13). Jedno źródło dla aplikacji (app.html) i strony startowej (index.html).
+   Reguły w styles.css używają tylko var(--…). Motyw ciemny: data-theme="dark" albo "auto" przy ciemnym systemie –
+   obie wersje mają TE SAME wartości (blok poniżej jest powtórzony, bo CSS nie pozwala połączyć selektora i @media). */
+:root{
+  color-scheme:light;
+  /* podstawa */
+  --bg:#eef3ef;--surface:#fff;--fill:#e8efea;--ink:#0f2a1f;--mut:#4f675b;
+  --line:#dbe5de;--line-strong:#c8d6cc;
+  --ac:#1b7a4c;--on:#fff;--ac-soft:#e3f1e8;
+  --ok:#157a49;--okbg:#e4f4ea;--warn:#9a5b07;--warnbg:#fcf0d9;--bad:#bb3434;--badbg:#fbe8e8;
+  /* marka */
+  --moss:#0e3b2c;--moss-2:#155039;--sprout:#a8e59b;
+  /* elementy zależne od motywu */
+  --brand-ink:var(--moss);
+  --btn:var(--moss);--btn-ink:#eaf7ee;
+  --fab:var(--moss);--fab-ink:var(--sprout);
+  --hero:var(--moss);--hero-ink:#e8f5ec;--hero-sub:#cfe8d8;--hero-label:var(--sprout);
+  --over-ink:#a46b00;--under-ink:#3d6fb0;
+  --min-bg:#eaf3fb;--min-line:#3b82c4;--min-tag:#2a6fae;--min-dose:#fff;
+  /* typografia (7.17): podpis · etykieta · tekst pomocniczy · tekst · nagłówek karty · tytuł ekranu · wynik */
+  --fs-xs:12px;--fs-sm:13px;--fs-md:15px;--fs-base:16px;--fs-h:17px;--fs-title:24px;--fs-num:30px;--fs-hero:36px;
+  /* odstępy i elementy sterujące */
+  --pad-card:18px 16px 20px;--gap:14px;--ctl:44px;
+  /* kształty */
+  --r-sm:10px;--rs:14px;--r:20px;
+  --shadow-card:0 0 0 1px var(--line),0 1px 2px rgb(15 42 31 / .05);
+  --shadow-pop:0 1px 2px rgb(15 42 31 / .06),0 10px 28px -14px rgb(15 42 31 / .28);
+}
+:root[data-theme=dark]{
+  color-scheme:dark;
+  --bg:#07140e;--surface:#0f2219;--fill:#15301f;--ink:#e4f1e8;--mut:#8ea999;
+  --line:#1d3a2b;--line-strong:#2a4d3b;
+  --ac:#62d18f;--on:#04210f;--ac-soft:#163a27;
+  --ok:#4ade80;--okbg:#12291a;--warn:#f5b94a;--warnbg:#2b2210;--bad:#f58383;--badbg:#2e1616;
+  --moss:#0b2c20;--moss-2:#12402d;--sprout:#a8e59b;
+  --brand-ink:var(--ink);
+  --btn:var(--ac);--btn-ink:var(--on);
+  --fab:var(--ac);--fab-ink:var(--on);
+  --hero:#0b2c20;--hero-ink:var(--ink);--hero-sub:#a9c4b4;--hero-label:var(--ac);
+  --over-ink:#f0c060;--under-ink:#8db8f0;
+  --min-bg:#132232;--min-line:#3b6f9e;--min-tag:#2a6fae;--min-dose:#0d1824;
+  --shadow-card:0 0 0 1px var(--line);
+  --shadow-pop:0 0 0 1px var(--line-strong);
+}
+@media(prefers-color-scheme:dark){:root[data-theme=auto]{
+  color-scheme:dark;
+  --bg:#07140e;--surface:#0f2219;--fill:#15301f;--ink:#e4f1e8;--mut:#8ea999;
+  --line:#1d3a2b;--line-strong:#2a4d3b;
+  --ac:#62d18f;--on:#04210f;--ac-soft:#163a27;
+  --ok:#4ade80;--okbg:#12291a;--warn:#f5b94a;--warnbg:#2b2210;--bad:#f58383;--badbg:#2e1616;
+  --moss:#0b2c20;--moss-2:#12402d;--sprout:#a8e59b;
+  --brand-ink:var(--ink);
+  --btn:var(--ac);--btn-ink:var(--on);
+  --fab:var(--ac);--fab-ink:var(--on);
+  --hero:#0b2c20;--hero-ink:var(--ink);--hero-sub:#a9c4b4;--hero-label:var(--ac);
+  --over-ink:#f0c060;--under-ink:#8db8f0;
+  --min-bg:#132232;--min-line:#3b6f9e;--min-tag:#2a6fae;--min-dose:#0d1824;
+  --shadow-card:0 0 0 1px var(--line);
+  --shadow-pop:0 0 0 1px var(--line-strong);
+}}

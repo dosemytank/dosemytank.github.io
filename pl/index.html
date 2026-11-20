@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="auto" data-sw="../sw.js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DoseMyTank – kalkulator nawozów do akwarium roślinnego, za darmo</title>
+<meta name="description" content="Darmowy kalkulator nawozów do akwarium: przepisy EI, PPS-Pro i PMDD z soli, dawki gotowych nawozów, mineralizacja wody RO i dziennik akwarium roślinnego. Bez konta, działa offline.">
+<link rel="canonical" href="https://dosemytank.github.io/pl/">
+<link rel="alternate" hreflang="en" href="https://dosemytank.github.io/">
+<link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/">
+<link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/">
+<meta name="theme-color" content="#0e3b2c">
+<link rel="manifest" href="../manifest-pl.json">
+<link rel="icon" href="../icon-192.png">
+<link rel="apple-touch-icon" href="../icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="DoseMyTank">
+<meta property="og:title" content="DoseMyTank – Twoje akwarium. Twój przepis.">
+<meta property="og:description" content="Ile gramów soli do butelki, ile ml nawozu, ile soli do wody RO. Przepisy EI, PPS-Pro i PMDD, dziennik pomiarów. Za darmo, bez konta, działa offline.">
+<meta property="og:url" content="https://dosemytank.github.io/pl/">
+<meta property="og:image" content="https://dosemytank.github.io/img/og-pl.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DoseMyTank: przepis na nawóz w dwóch butelkach i wykres azotanów z dziennika akwarium">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DoseMyTank – Twoje akwarium. Twój przepis.">
+<meta name="twitter:description" content="Darmowe narzędzia dla akwarystów roślinnych: nawozy z soli (EI, PPS-Pro, PMDD), dawki gotowych nawozów, mineralizacja wody RO.">
+<meta name="twitter:image" content="https://dosemytank.github.io/img/og-pl.png">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"DoseMyTank","url":"https://dosemytank.github.io/pl/","applicationCategory":"UtilitiesApplication","operatingSystem":"Dowolny (przeglądarka, instalowana aplikacja PWA)","inLanguage":["pl","en"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"PLN"},"description":"Kalkulator nawozów do akwarium roślinnego: nawozy z soli (EI, PPS-Pro, PMDD), dawki gotowych nawozów, mineralizacja wody RO i dziennik akwarium. Działa offline, bez konta."}
+</script>
+</head>
+<body>
+
+<div id="fb" role="status" hidden>
+  <b>Otwierasz stronę w przeglądarce Facebooka.</b>
+  Żeby zainstalować aplikację i nie stracić zapisanych danych, otwórz ten link w zwykłej przeglądarce (Chrome lub Safari): w rogu ekranu wybierz „⋯” → „Otwórz w przeglądarce”.
+  <br><button id="copy" type="button" data-done="Skopiowano ✓" data-prompt="Skopiuj link:">Skopiuj link</button>
+</div>
+<div class="banner" id="altlang" data-lang="en" hidden lang="en">Prefer English? <a href="../" data-setlang="en">Go to the English version →</a></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./"><span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15"/><path d="M5 19c3-5 6-8 10-10"/></svg></span>DoseMyTank</a>
+      <nav aria-label="Sekcje strony"><a href="#funkcje">Funkcje</a><a href="#przyklad">Przykład</a><a href="#faq">Pytania</a><a href="o-aplikacji.html">O aplikacji</a><a class="navkofi" aria-label="Ko-fi" title="Ko-fi" href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v2M12 3v2"/></svg><span>Wesprzyj</span></a></nav>
+      <a class="lang" href="../" hreflang="en" lang="en" data-setlang="en" title="English version">EN</a>
+      <a class="btn sm" href="../app.html?lang=pl">Otwórz aplikację</a>
+    </div>
+    <div class="heroGrid">
+      <div class="heroTxt">
+        <p class="kicker">Darmowe narzędzia dla akwarystów roślinnych</p>
+        <h1>Twoje akwarium. Twój przepis.</h1>
+        <p class="sub">Przygotuj własne nawozy. Policz stężenia składników. Zmineralizuj wodę RO. DoseMyTank podaje, <b>ile gramów każdej soli wsypać do butelki</b>, ile ml dawkować i o ile to podniesie stężenie w akwarium (mg/l).</p>
+        <ul class="free" aria-label="Najważniejsze"><li>Za darmo</li><li>Bez rejestracji</li><li>Działa offline</li></ul>
+        <div class="cta">
+          <a class="btn" href="../app.html?lang=pl">Otwórz aplikację</a>
+          <button class="btn line" id="install" type="button" hidden>Zainstaluj na tym urządzeniu</button>
+          <a id="howto" href="#instalacja">Jak zainstalować</a>
+        </div>
+        <p class="meta"><span>Po polsku i po angielsku</span><span>Dane zostają w telefonie</span><span>Bez reklam</span></p>
+      </div>
+      <div class="crop"><picture><source srcset="../img/kalkulator-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/kalkulator.webp" width="708" height="1830" alt="Przygotuj nawóz: przepis na dwie butelki dla akwarium 112 l – makro z KNO₃, KH₂PO₄, K₂SO₄ i MgSO₄·7H₂O, mikro z CSM+B, po 30 ml z każdej butelki 3 razy w tygodniu"></picture></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="funkcje">
+  <div class="wrap">
+    <h2>Co policzysz</h2>
+    <p class="lead">Cztery narzędzia, po które przychodzi się najczęściej. Każde pokazuje cały rachunek: sole, gramy, dawkę i wynikowe stężenie.</p>
+    <div class="fcards c4">
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/></svg></span>
+        <h3>Nawóz z soli</h3>
+        <p>Podajesz objętość, światło i CO₂, wybierasz plan – aplikacja dobiera sole i dawkę. Dostajesz gramy do butelki, ml na dawkę i przewidywany tygodniowy przyrost NO₃, PO₄, K, Mg i Fe.</p>
+        <ul><li>Przepisy EI, PPS-Pro i PMDD albo własne cele</li><li>Butelki makro i mikro albo nawożenie na sucho</li><li>Ostrzeżenia, gdy sole się wytrącą (np. wapń z fosforanem) albo nie rozpuszczą</li><li>Lista zakupów z nazwami handlowymi (saletra potasowa, sól gorzka…)</li></ul></article>
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>
+        <h3>Mineralizacja wody RO</h3>
+        <p>Ile gipsu, siarczanu magnezu i wodorowęglanu potasu dodać do porcji wody RO, żeby miała docelowe GH i KH oraz wybraną proporcję Ca : Mg.</p>
+        <ul><li>Wapń i magnez z nawozu są odejmowane</li><li>Przygotowanie krok po kroku i kontrola GH i KH testem</li><li>Przewodność (µS/cm) i TDS gotowej wody</li></ul></article>
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="6" width="10" height="15" rx="2"/><path d="M10 3h4v3h-4z"/></svg></span>
+        <h3>Gotowe nawozy</h3>
+        <p>Ponad 30 nawozów w bazie (Tropica, Seachem, Easy Life, CSM+B i inne). Dawka producenta przeliczona na Twoje akwarium, przyrost składników z Twojej dawki albo ilość ml do zadanego przyrostu.</p>
+        <ul><li>Porównanie do trzech nawozów naraz</li><li>Własny nawóz z etykiety (% albo g/l, przeliczenie K₂O i P₂O₅)</li><li>Pozycje bez pełnego składu oznaczone jako orientacyjne</li></ul></article>
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/></svg></span>
+        <h3>Dziennik akwarium</h3>
+        <p>Pomiary, podmiany, dawki i notatki. Wykresy z zakresem docelowym, plan pielęgnacji z przypomnieniami w kalendarzu telefonu i podpowiedź, który parametr sprawdzić najpierw.</p>
+        <ul><li>Kilka akwariów</li><li>Kopia zapasowa do pliku i eksport do CSV</li></ul></article>
+    </div>
+    <ul class="fchips" aria-label="Pozostałe narzędzia">
+      <li>Stężenie w zrobionej butelce</li><li>Zrób sam odpowiednik gotowego nawozu</li><li>Korekta parametrów</li><li>Podmiana wody</li><li>CO₂ z pH i KH</li><li>Przeliczniki: N ↔ NO₃, P₂O₅ ↔ PO₄, K₂O ↔ K, °dH ↔ mg/l</li><li>Objętość zbiornika</li><li>PRO: miareczkowanie, obniżanie KH, narastanie soli</li>
+    </ul>
+    <div class="shots s4">
+      <figure><picture><source srcset="../img/mineral-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/mineral.webp" loading="lazy" width="708" height="3600" alt="Mineralizacja wody RO: gramy CaSO₄·2H₂O, MgSO₄·7H₂O i KHCO₃ na 45 l wody RO, cel GH 6 i KH 3"></picture><figcaption><b>Mineralizacja wody RO</b><br>Sole do porcji wody na podmianę</figcaption></figure>
+      <figure><picture><source srcset="../img/gotowe-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/gotowe.webp" loading="lazy" width="708" height="1242" alt="Gotowy nawóz: dawka dzienna dla akwarium 112 l i przyrost K i Fe po jednej dawce i po tygodniu"></picture><figcaption><b>Gotowe nawozy</b><br>Dawka i przyrost w tygodniu</figcaption></figure>
+      <figure><picture><source srcset="../img/wykresy-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/wykresy.webp" loading="lazy" width="780" height="1688" alt="Dziennik akwarium: wykres azotanów NO₃ z pasmem docelowym 10–30 mg/l z ostatnich trzech miesięcy"></picture><figcaption><b>Dziennik akwarium</b><br>Azotany z zakresem docelowym</figcaption></figure>
+      <figure><picture><source srcset="../img/korekta-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/korekta.webp" loading="lazy" width="780" height="1688" alt="Korekta parametrów akwarium: wartość obecna i cel dla azotanów, wybór źródła"></picture><figcaption><b>Korekta parametrów</b><br>Od wyniku testu do celu</figcaption></figure>
+      <p class="shotsNote">Zrzuty z aplikacji, dane przykładowe.</p>
+    </div>
+  </div>
+</section>
+
+<section id="przyklad" class="alt">
+  <div class="wrap">
+    <h2>Przykład: pierwsza butelka nawozu</h2>
+    <div class="example">
+      <div>
+        <ol class="steps">
+          <li><b>Opisz akwarium</b><span>100 l wody, słabe światło, bez CO₂, podmiana 30% co tydzień.</span></li>
+          <li><b>Wybierz plan</b><span>„Zalecane” – typowa dawka na start przy Twoim świetle. Oszczędnie, Więcej i Z zapasem (EI) są jedno dotknięcie dalej.</span></li>
+          <li><b>Zaznacz sole, które masz</b><span>Domyślnie: cztery podstawowe sole i mieszanka mikro CSM+B. Sole, które nie mogą być razem, trafiają do osobnych butelek.</span></li>
+          <li><b>Odważ i dawkuj</b><span>Wsyp sole do dwóch butelek po 500 ml i dawkuj po 30 ml z każdej, 3 razy w tygodniu. Butelka starczy na ok. 6 tygodni.</span></li>
+          <li><b>Testuj i koryguj</b><span>Przez pierwsze 2–3 tygodnie testuj NO₃ i PO₄ przed podmianą, zapisuj wyniki w dzienniku i zmieniaj plan w górę albo w dół.</span></li>
+        </ol>
+      </div>
+      <div class="recipe" aria-label="Przepis policzony w aplikacji dla tego przykładu">
+        <h3>A · Makro, butelka 500 ml</h3>
+        <table><tr><td>KNO₃ (saletra potasowa)</td><td>4,53 g</td></tr><tr><td>KH₂PO₄ (fosforan monopotasowy)</td><td>0,4 g</td></tr><tr><td>K₂SO₄ (siarczan potasu)</td><td>2,03 g</td></tr><tr><td>MgSO₄·7H₂O (sól gorzka)</td><td>11,3 g</td></tr></table>
+        <h3>B · Mikro, butelka 500 ml</h3>
+        <table><tr><td>Mieszanka CSM+B</td><td>0,79 g</td></tr></table>
+        <p>Tygodniowo w akwarium: NO₃ +5, PO₄ +0,5, K +5, Mg +2, Fe +0,1 mg/l. Wartości z aplikacji dla danych po lewej.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dla-kogo">
+  <div class="wrap">
+    <h2>Dla początkujących i dla zaawansowanych</h2>
+    <div class="who">
+      <article><h3>Jeśli dopiero zaczynasz z nawozami z soli</h3><ul>
+        <li>Zacznij od „Przygotuj nawóz”: kilka pytań i gotowy przepis.</li>
+        <li>Proste objaśnienia GH, KH, mg/l, chelatów, makro i mikro oraz ekrany pomocy.</li>
+        <li>Wyraźne ostrzeżenia: miedź przy krewetkach, amon, sole, które się nie rozpuszczą, kwasy.</li>
+        <li>Problemy z roślinami albo glony? Lista objawów podpowie, co zbadać najpierw.</li></ul></article>
+      <article><h3>Jeśli znasz już EI i PPS-Pro</h3><ul>
+        <li>Kalkulatory Makro i Mikro – sól po soli, własne cele na dawkę albo na tydzień.</li>
+        <li>Każda forma uwodnienia (np. MgSO₄ i MgSO₄·7H₂O), czystość soli i zawartość chelatu z etykiety.</li>
+        <li>Kontrola rozpuszczalności, efekt wspólnego jonu i automatyczny podział na butelki.</li>
+        <li>Własne sole, przepisy i baza nawozów – do zapisania w pliku.</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="akwaria" class="alt">
+  <div class="wrap">
+    <h2>Z akwarium autora</h2>
+    <p class="lead">Zbiorniki roślinne nawożone solami według własnych przepisów.</p>
+    <div class="gal">
+      <figure style="flex:1"><img src="../img/zbiornik-gupiki.webp" loading="lazy" width="1100" height="1100" alt="Akwarium roślinne z gupikami: zielone pierzaste rośliny po lewej, czerwone i rdzawe łodygowe w środku, trawiaste po prawej, gęsty dywanik z przodu"></figure>
+      <figure style="flex:2.4"><img src="../img/zbiornik-front.webp" loading="lazy" width="1600" height="667" alt="Akwarium roślinne od frontu: gęste rośliny łodygowe w odcieniach zieleni i rdzy, niskie rośliny na pierwszym planie"></figure>
+      <figure style="flex:.75"><img src="../img/zbiornik-z-gory.webp" loading="lazy" width="840" height="1120" alt="Akwarium z góry, wzdłuż lampy: kwitnąca bucefalandra, żółte i pomarańczowe rozety roślin łodygowych"></figure>
+    </div>
+    <p class="kofiband">DoseMyTank jest darmowy. Jeśli Ci się przydał, <a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v2M12 3v2"/></svg>postaw kawę na Ko-fi</a></p>
+  </div>
+</section>
+
+<section id="instalacja">
+  <div class="wrap">
+    <h2>Instalacja i dane</h2>
+    <div class="two">
+      <div>
+        <p style="color:var(--mut);margin-bottom:20px">Aplikację można zainstalować na telefonie lub komputerze bezpośrednio z przeglądarki, bez sklepu z aplikacjami.</p>
+        <div class="os"><h3>iPhone i iPad (Safari)</h3><ol><li>Otwórz ten adres w Safari, nie w przeglądarce Facebooka.</li><li>Dotknij <b>Udostępnij</b> (kwadrat ze strzałką).</li><li>Wybierz <b>Do ekranu początkowego</b>.</li></ol></div>
+        <div class="os"><h3>Android (Chrome)</h3><ol><li>Otwórz ten adres w Chrome.</li><li>Dotknij menu <b>⋮</b> w prawym górnym rogu.</li><li>Wybierz <b>Zainstaluj aplikację</b> lub „Dodaj do ekranu głównego”.</li></ol></div>
+        <div class="os"><h3>Komputer (Chrome, Edge)</h3><ol><li>Otwórz aplikację.</li><li>Kliknij ikonę instalacji na końcu paska adresu.</li></ol></div>
+      </div>
+      <div>
+        <ul class="facts">
+          <li>Bez konta i logowania. Nic nie trafia na serwer.</li>
+          <li>Dane zapisują się w przeglądarce, a po pierwszym otwarciu aplikacja działa offline. Nowe wersje pobiera sama, gdy jest sieć.</li>
+          <li>Kopię zapasową zapiszesz do pliku i wczytasz w Ustawieniach.</li>
+        </ul>
+        <div class="note"><b>Dane są przypisane do przeglądarki.</b> Używaj aplikacji zawsze z ikony na ekranie głównym i rób kopię co jakiś czas. Zmiana telefonu lub wyczyszczenie danych przeglądarki usuwa dane.</div>
+        <div class="note"><b>Kwasy i chemia.</b> Przy każdym obliczeniu z kwasem aplikacja pokazuje zasady bezpieczeństwa i słabszą opcję (np. ocet 10%). Chemię dodawaj rozcieńczoną i po kolei, nie wszystko naraz.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap faq">
+    <h2>Pytania</h2>
+    <details><summary>Czy DoseMyTank jest naprawdę darmowy?</summary><p>Tak. Nie ma wersji płatnej, reklam ani konta. Aplikacja jest projektem hobbystycznym i działa w całości w przeglądarce. Jeśli chcesz wesprzeć dalszy rozwój, możesz <a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener">postawić kawę na Ko-fi</a>.</p></details>
+    <details><summary>Od czego zacząć?</summary><p>Otwórz aplikację – pierwszy ekran to „Przygotuj nawóz”. Wpisz objętość akwarium oraz wybierz światło i CO₂. Przepis i lista potrzebnych zakupów pojawią się od razu, dla podstawowego zestawu soli.</p></details>
+    <details><summary>Jakie metody nawożenia obsługuje?</summary><p>EI (Estimative Index), PPS-Pro i PMDD jako gotowe przepisy oraz własne cele w mg/l na tydzień albo na dawkę. Dawkować można z butelek albo na sucho. Gotowe nawozy da się łączyć z własnymi solami.</p></details>
+    <details><summary>Mam sól siedmiowodną, a przepis podaje bezwodną. Co teraz?</summary><p>Każda forma soli jest osobną pozycją, np. MgSO₄·7H₂O i bezwodny MgSO₄. Wybierz tę, która jest na opakowaniu. Ilość magnezu zostaje ta sama, zmienia się tylko liczba gramów do odważenia.</p></details>
+    <details><summary>ppm czy mg/l?</summary><p>W wodzie słodkiej to to samo: 1 mg/l = 1 ppm. Aplikacja podaje mg/l, a koncentraty nawozów w g/l.</p></details>
+    <details><summary>Czym różni się mineralizacja wody od korekty parametrów?</summary><p>Mineralizacja liczy, ile soli dodać do całej porcji wody RO przed podmianą, żeby miała zadane GH i KH. Korekta parametrów akwarium liczy, ile składnika dodać do wody, która już jest w zbiorniku, żeby zmienić wynik testu na docelowy.</p></details>
+    <details><summary>Na ile dokładne są wyniki?</summary><p>Rachunek jest dokładny dla danych, które wpiszesz: masy liczone są ze wzorów chemicznych soli (masy atomowe IUPAC 2021), a obliczenia sprawdzają automatyczne testy. Na wynik w akwarium wpływają jednak czystość soli, dokładność wagi, skład podany na etykiecie i dokładność testów kropelkowych. Rozpuszczalność mieszaniny soli jest szacowana z zapasem. Część gotowych nawozów nie ma publicznego pełnego składu – takie pozycje są oznaczone jako orientacyjne. Aplikacja nie przewiduje, ile składników zużyją rośliny – pokaże to dopiero test wody.</p></details>
+    <details><summary>Czy aplikacja powie, czy rośliny będą dobrze rosły?</summary><p>Nie. Aplikacja liczy, ile składników dodajesz do wody. Wzrost roślin zależy też od światła, CO₂, podłoża i gatunków. Zalecane dawki są punktem wyjścia, który koryguje się po testach i obserwacji roślin.</p></details>
+    <details><summary>Jak przenieść dane na nowy telefon?</summary><p>W Ustawieniach zapisz kopię do pliku, a na nowym telefonie wczytaj ją w tym samym miejscu. Bez kopii dane zostają w starej przeglądarce.</p></details>
+    <details><summary>Znalazłem błąd albo mam pomysł.</summary><p>Zgłoś go na <a href="kontakt.html">stronie kontaktu</a>. Przy błędzie podaj model telefonu, przeglądarkę i co dokładnie się stało. Pomaga zrzut ekranu.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>O aplikacji i kontakt</h2>
+    <div class="cards2">
+      <a href="o-aplikacji.html"><b>O DoseMyTank →</b><span>Czym jest, jak liczy i co dzieje się z Twoimi danymi.</span></a>
+      <a href="kontakt.html"><b>Zgłoś błąd albo pomysł →</b><span>Napisz, co nie działa albo czego brakuje. Każda uwaga – od początkujących i od weteranów EI – się przyda.</span></a>
+      <a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><b>Wesprzyj DoseMyTank na Ko-fi →</b><span>Aplikacja jest darmowa, bez reklam i konta. Kawa pomaga w rozwoju kolejnych wersji.</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>DoseMyTank · wersja 8.2.1. Wyniki są obliczeniami pomocniczymi i nie zastępują testów wody. Autor nie odpowiada za skutki dawkowania nawozów i chemii w Twoim zbiorniku.</p>
+    <nav aria-label="Stopka"><a href="../app.html?lang=pl">Otwórz aplikację</a><a href="o-aplikacji.html">O aplikacji</a><a href="kontakt.html">Kontakt</a><a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener">Ko-fi</a><a href="../" hreflang="en" lang="en" data-setlang="en">English</a></nav>
+  </div>
+</footer>
+<script src="../site.js"></script>
+</body>
+</html>

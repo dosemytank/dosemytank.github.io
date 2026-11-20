@@ -1,0 +1,90 @@
+{
+  "id": "./app.html",
+  "name": "DoseMyTank – aquarium fertilizer calculator",
+  "short_name": "DoseMyTank",
+  "description": "DIY aquarium fertilizer calculator (EI, PPS-Pro, PMDD), commercial fertilizer dosing, RO water remineralization and a planted tank log. Works offline.",
+  "start_url": "./app.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e3b2c",
+  "theme_color": "#0e3b2c",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": [
+    "utilities",
+    "lifestyle",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Make fertilizer",
+      "short_name": "Fertilizer",
+      "url": "./app.html#/calculator/fertilizer",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "RO remineralization",
+      "short_name": "RO water",
+      "url": "./app.html#/calculator/remineralization",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Tank log",
+      "short_name": "Log",
+      "url": "./app.html#/log",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "img/en/kalkulator.webp",
+      "sizes": "708x1718",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Fertilizer recipe for two bottles"
+    },
+    {
+      "src": "img/en/wykresy.webp",
+      "sizes": "780x1688",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Tank log with a nitrate chart"
+    }
+  ]
+}

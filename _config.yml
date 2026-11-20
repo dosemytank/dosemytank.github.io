@@ -1,0 +1,8 @@
+# GitHub Pages (Jekyll): pliki robocze nie są publikowane na stronie – zostają tylko w repozytorium
+exclude:
+  - AUDYT.md
+  - STAN_I_PLAN.md
+  - README.md
+  - package.json
+  - tests
+  - shots
