@@ -215,11 +215,12 @@ test('na sucho: przykład z audytu – gramy na jedną dawkę (tydzień / 7), mg
   for (const [k, v] of [['NO3', 10], ['PO4', 1], ['K', 15], ['Mg', 3]]) assert.ok(Math.abs(r.p[k] * 7 - v) < 1e-9, k);
   assert.ok(L.sucho({ rows: [{ k: 'NO3', t: '', src: 'KNO3|0' }], V: 100, n: 7 }).empty);
 });
-test('metody: EI z przepisu, PPS-Pro z gramów i dawki 1 ml / 40 l dziennie', () => {
+test('metody: EI z przepisu, PPS-Pro z gramów: makro 1 ml, mikro 0,5 ml na 40 l dziennie', () => {
   const m = L.metody(); assert.deepEqual([m.EI.NO3, m.EI.PO4, m.EI.K, m.EI.Mg, m.EI.Fe], [20, 3, 30, 10, 0.5]);
   // PPS-Pro: 33 g KNO₃ w 500 ml = 66 g/l → NO₃ 40,48 g/l; 1 ml / 40 l × 7 → 7,08 mg/l (jak „Sprawdź” w 6.11)
   assert.ok(Math.abs(m['PPS-Pro'].NO3 - 66 * 62.004 / 101.103 / 40 * 7) < 2e-3, m['PPS-Pro'].NO3);
-  assert.ok(m['PPS-Pro'].Fe > 0.6 && m['PPS-Pro'].Fe < 0.8, 'Fe z CSM+B: ' + m['PPS-Pro'].Fe);
+  // mikro: 58 g/l CSM+B × 70 mg Fe/g = 4,06 mg Fe/ml; 0,5 ml / 40 l × 7 → 0,355 mg/l
+  assert.ok(Math.abs(m['PPS-Pro'].Fe - 58 * 70 / 1000 * 0.5 / 40 * 7) < 1e-6, 'Fe z CSM+B: ' + m['PPS-Pro'].Fe);
 });
 
 /* ---------- „Zrób nawóz” (kreator) ---------- */

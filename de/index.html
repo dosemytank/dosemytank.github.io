@@ -45,7 +45,7 @@
   Um die App zu installieren und deine Daten sicher zu speichern, öffne diesen Link in deinem normalen Browser (Chrome oder Safari): Tippe auf „⋯“ in der Ecke und wähle „Im Browser öffnen“.
   <br><button id="copy" type="button" data-done="Kopiert ✓" data-prompt="Link kopieren:">Link kopieren</button>
 </div>
-<div class="banner" id="altlang" data-lang="en" hidden lang="en">Prefer English? <a href="../" data-setlang="en">Go to the English version →</a></div>
+<aside class="banner" id="altlang" aria-label="English version" data-lang="en" hidden lang="en">Prefer English? <a href="../" data-setlang="en">Go to the English version →</a></aside>
 <div class="banner" data-lang="pl" hidden lang="pl">Wolisz po polsku? <a href="../pl/" data-setlang="pl">Przejdź do polskiej wersji →</a></div>
 
 <header class="hero">
@@ -100,7 +100,7 @@
     <ul class="fchips" aria-label="Weitere Werkzeuge">
       <li>Nährstoffkonzentration einer Flasche</li><li>Nachbau eines Fertigdüngers aus Salzen</li><li>Testwert auf das Ziel korrigieren</li><li>Wasserwechsel-Rechner</li><li>CO₂ aus pH und KH</li><li>Umrechner: N ↔ NO₃, P₂O₅ ↔ PO₄, K₂O ↔ K, °dH ↔ ppm</li><li>Beckenvolumen aus den Maßen</li><li>PRO: Titration, KH-Senkung mit Säure, Salzanreicherung</li>
     </ul>
-    <div class="shots s4">
+    <div class="shots s4" tabindex="0" role="region" aria-label="Screenshots aus der App">
       <figure><picture><source srcset="../img/de/mineral-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/de/mineral.webp" loading="lazy" width="708" height="3612" alt="Osmosewasser aufhärten: Gramm CaSO₄·2H₂O, MgSO₄·7H₂O und KHCO₃ für 45 l Osmosewasser, Ziel GH 6 und KH 3"></picture><figcaption><b>Osmosewasser aufhärten</b><br>Salze für einen Ansatz Osmosewasser</figcaption></figure>
       <figure><picture><source srcset="../img/de/gotowe-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/de/gotowe.webp" loading="lazy" width="708" height="1246" alt="Fertigdünger: Tagesdosis für ein 112-l-Aquarium und Anstieg von K und Fe nach einer Dosis und nach einer Woche"></picture><figcaption><b>Fertigdünger</b><br>Dosis und Anstieg pro Woche</figcaption></figure>
       <figure><picture><source srcset="../img/de/wykresy-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/de/wykresy.webp" loading="lazy" width="780" height="1688" alt="Aquarium-Logbuch: Nitrat-Diagramm (NO₃) mit Zielband 10–30 mg/l über drei Monate"></picture><figcaption><b>Aquarium-Logbuch</b><br>Nitrat im Vergleich zum Zielbereich</figcaption></figure>
@@ -156,7 +156,7 @@
   <div class="wrap">
     <h2>Aus den Aquarien des Autors</h2>
     <p class="lead">Pflanzenaquarien, gedüngt mit Salzen nach den eigenen Rezepten des Autors.</p>
-    <div class="gal">
+    <div class="gal" tabindex="0" role="region" aria-label="Fotos der Aquarien des Autors">
       <figure style="flex:1"><img src="../img/zbiornik-gupiki.webp" loading="lazy" width="1100" height="1100" alt="Pflanzenaquarium mit Guppys: gefiederte grüne Pflanzen links, rote und rostfarbene Stängelpflanzen in der Mitte, grasartige Pflanzen rechts, ein dichter Bodendecker vorne"></figure>
       <figure style="flex:2.4"><img src="../img/zbiornik-front.webp" loading="lazy" width="1600" height="667" alt="Pflanzenaquarium von vorne: dichte Stängelpflanzen in Grün- und Rosttönen, niedrige Pflanzen im Vordergrund"></figure>
       <figure style="flex:.75"><img src="../img/zbiornik-z-gory.webp" loading="lazy" width="840" height="1120" alt="Aquarium von oben entlang des Lichts: eine blühende Bucephalandra sowie gelbe und orange Rosetten von Stängelpflanzen"></figure>
@@ -220,7 +220,7 @@
 
 <footer>
   <div class="wrap foot">
-    <p>DoseMyTank · Version 8.5.0. Die Ergebnisse sind Hilfsberechnungen und ersetzen keine Wassertests. Der Autor haftet nicht für die Folgen der Dosierung von Düngern und Chemikalien in deinem Aquarium.</p>
+    <p>DoseMyTank · Version 8.5.1. Die Ergebnisse sind Hilfsberechnungen und ersetzen keine Wassertests. Der Autor haftet nicht für die Folgen der Dosierung von Düngern und Chemikalien in deinem Aquarium.</p>
     <nav aria-label="Fußzeile"><a href="../app.html?lang=de">App öffnen</a><a href="ueber.html">Über</a><a href="kontakt.html">Kontakt</a><a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener">Ko-fi</a><a href="../" hreflang="en" lang="en" data-setlang="en">English</a><a href="../pl/" hreflang="pl" lang="pl" data-setlang="pl">Polski</a></nav>
   </div>
 </footer>

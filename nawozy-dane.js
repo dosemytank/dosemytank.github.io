@@ -7,12 +7,12 @@ const X = typeof CHEM !== 'undefined' ? CHEM : require('./chem.js');
 
 /* ---------- przepisy DIY ----------
    PPS-Pro (Edward, aquaticplantcentral): butelka makro 500 ml – K₂SO₄ 29 g, KNO₃ 33 g, KH₂PO₄ 3 g, MgSO₄·7H₂O 20 g;
-   mikro – 29 g CSM+B / 500 ml; dawka 1 ml każdej na 40 l codziennie.
+   mikro – 29 g CSM+B / 500 ml; makro 1 ml, mikro 0,5 ml na 40 l codziennie (8.5.1: mikro za stroną autora, wcześniej 1 ml).
    EI (T. Barr) – typowe cele tygodniowe: NO₃ 20, PO₄ 3, K 30, Mg 10, Fe 0,5 mg/l; 3× w tygodniu, podmiana 50% raz w tygodniu. */
 const DIY = {
-  ppspro: { name: tl('PPS-Pro (makro)'), bottle: 500, perLiters: 40, doseMl: 1, n: 7,
+  ppspro: { name: tl('PPS-Pro (makro)'), bottle: 500, perLiters: 40, doseMl: 1, microMl: 0.5, n: 7,
     items: [{ mat: 'K2SO4', hyd: 0, g: 29 }, { mat: 'KNO3', hyd: 0, g: 33 }, { mat: 'KH2PO4', hyd: 0, g: 3 }, { mat: 'MgSO4', hyd: 7, g: 20 }],
-    note: tl('Mikro robisz w osobnej butelce: 29 g CSM+B na 500 ml, dawka ta sama, 1 ml na 40 l dziennie. Podmiana nie jest konieczna, ale zwykle się ją robi.') },
+    note: tl('Mikro robisz w osobnej butelce: 29 g CSM+B na 500 ml, dawka 0,5 ml na 40 l dziennie (tak podaje autor metody; starsze opisy mają 1 ml). Podmiana nie jest konieczna, ale zwykle się ją robi.') },
   ei: { name: 'EI – Estimative Index', n: 3, week: { NO3: 20, PO4: 3, K: 30, Mg: 10 }, weekMicro: { Fe: 0.5 },
     note: tl('Przez tydzień dajesz składniki z zapasem, a potem podmieniasz około połowy wody. Mikro (np. CSM+B) dawkujesz w dni bez makro.') },
 };

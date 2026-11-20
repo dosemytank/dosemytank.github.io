@@ -8,8 +8,11 @@
 <link rel="canonical" href="https://dosemytank.github.io/app.html">
 <script>
 // język przed wczytaniem manifestu: nazwa aplikacji przy instalacji w języku interfejsu (EN, PL, DE)
-(function () { var l = 'en', ok = function (x) { return x === 'pl' || x === 'en' || x === 'de'; }; try { var q = new URLSearchParams(location.search).get('lang'), s = localStorage.getItem('dmt.lang'), b = String(navigator.language || '');
-  l = ok(q) ? q : ok(s) ? s : (localStorage.getItem('akwa.v4') || /^pl\b/i.test(b)) ? 'pl' : /^de\b/i.test(b) ? 'de' : 'en'; } catch (e) {}
+// 8.5.1: ta sama kolejność co detect() w i18n.js – cała lista navigator.languages, nie tylko pierwszy język
+(function () { var l = 'en', ok = function (x) { return x === 'pl' || x === 'en' || x === 'de'; }; try { var q = new URLSearchParams(location.search).get('lang'), s = localStorage.getItem('dmt.lang');
+  if (ok(q)) l = q; else if (ok(s)) l = s; else if (localStorage.getItem('akwa.v4') || localStorage.getItem('akwa.v3') || localStorage.getItem('akwa.v2')) l = 'pl';
+  else { var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+    for (var i = 0; i < ls.length; i++) { var x = String(ls[i]).toLowerCase().slice(0, 2); if (ok(x)) { l = x; break; } } } } catch (e) {}
   document.documentElement.lang = l; document.write('<link rel="manifest" href="' + (l === 'pl' ? 'manifest-pl.json' : l === 'de' ? 'manifest-de.json' : 'manifest.json') + '">'); })();
 </script>
 <link rel="icon" href="icon-192.png">
@@ -31,8 +34,11 @@
 </header>
 <main id="main"></main>
 <nav class="bar" id="nav"></nav>
-<script src="i18n-en.js"></script>
-<script>if (document.documentElement.lang === 'de') document.write('<script src="i18n-de.js"><\/script>');</script>
+<script>
+// słowniki tylko dla potrzebnego języka: PL nie potrzebuje żadnego, DE – niemieckiego i angielskiego (brakujące teksty)
+if (document.documentElement.lang !== 'pl') document.write('<script src="i18n-en.js"><\/script>');
+if (document.documentElement.lang === 'de') document.write('<script src="i18n-de.js"><\/script>');
+</script>
 <script src="i18n.js"></script>
 <script src="products.js"></script>
 <script src="calc.js"></script>
@@ -62,7 +68,7 @@
 <script src="odpowiednik.js"></script>
 <script src="pomoc-ekranow.js"></script>
 <script>
-const APP_VERSION = '8.5.0';
+const APP_VERSION = '8.5.1';
 initStore();
 kofiTrack();
 applyTheme();

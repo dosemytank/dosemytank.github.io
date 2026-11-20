@@ -88,6 +88,8 @@ test('parser wzorów', () => {
   const a = X.parseFormula('Ca(NO3)2·4H2O'); near(a.M, 236.146, 1e-4); assert.equal(a.water, 4);
   near(X.parseFormula('(NH4)6Mo7O24*4H2O').M, 1235.92, 1e-4); near(X.parseFormula('CaSO4·0,5H2O').M, 145.142, 1e-4);
   near(X.parseFormula('KH₂PO₄').M, 136.084, 1e-4); near(X.parseFormula('MgSO4.7H2O').M, 246.466, 1e-4);
+  // 8.5.1: ułamek H₂O z kropką
+  near(X.parseFormula('CaSO4·0.5H2O').M, 145.142, 1e-4); near(X.parseFormula('CuSO4.2.5H2O').M, X.parseFormula('CuSO4·2,5H2O').M, 1e-9); assert.equal(X.parseFormula('CuSO4.2.5H2O').water, 2.5);
   assert.throws(() => X.parseFormula('Xx2')); assert.throws(() => X.parseFormula('Ca(NO3')); assert.throws(() => X.parseFormula(''));
 });
 test('własna sól: K2HPO4·3H2O jako materiał użytkownika = wbudowany', () => {

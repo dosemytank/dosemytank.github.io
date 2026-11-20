@@ -90,10 +90,14 @@
       try { ls && ls.setItem(KEY, l); } catch (e) {}
       G.location.reload();
     };
-    // słownik niemiecki wczytujemy tylko przy interfejsie DE – przy zmianie na DE (albo z DE) dociągamy go, żeby przenieść domyślne nazwy
-    if ((l === 'de' || LANG === 'de') && !G.I18N_DE && typeof document !== 'undefined') {
-      const sc = document.createElement('script'); sc.src = 'i18n-de.js'; sc.onload = sc.onerror = done; document.head.append(sc);
-    } else done();
+    // słowniki wczytujemy tylko dla języka interfejsu (PL – żaden) – przy zmianie dociągamy brakujące, żeby przenieść domyślne nazwy
+    const both = [l, LANG], need = [];
+    if (typeof document !== 'undefined') {
+      if (both.includes('en') && !G.I18N_EN) need.push('i18n-en.js');
+      if (both.includes('de') && !G.I18N_DE) need.push('i18n-de.js');
+    }
+    const next = () => { const f = need.shift(); if (!f) return done(); const sc = document.createElement('script'); sc.src = f; sc.onload = sc.onerror = next; document.head.append(sc); };
+    next();
   }
   if (typeof document !== 'undefined') document.documentElement.lang = LANG;
   Object.assign(G, { tl, tlData, LANG, LOCALE, DEC, setLang, fmtNum, fmtDateShort, fmtDateLong, fmtDayMonth, fmtTime, fmtKeyDM, I18N_MISSING: MISSING, I18N_LANGS: SUP });

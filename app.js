@@ -88,6 +88,8 @@ function render() {
   document.querySelectorAll('nav.bar button[data-s]').forEach(b => b.classList.toggle('on', b.dataset.s === navSec));
   const root = h('div'); main.append(root);
   try { PAGES[key](root); } catch (e) { root.append(h('div', { class: 'alert bad', html: (icon('warn') + '<div>' + tl('<b>Nie udało się wyświetlić tego ekranu.</b><br>Twoje dane są zapisane. Wróć i spróbuj ponownie; jeśli to się powtarza, zrób kopię w Ustawieniach.') + '<details class="why">' + '<summary>' + tl('Szczegóły') + '</summary>' + '<p>' + esc(e.message) + '</p>' + '</details>' + '</div>') })); console.error(e); }
+  // 8.5.1: każdy ekran ma nagłówek h1 (czytniki ekranu) – gdy ekran nie ma widocznego tytułu, niewidoczny z nazwą sekcji
+  if (!main.querySelector('h1')) main.prepend(h('h1', { class: 'sr-only' }, { kalkulator: tl('Kalkulator'), zbiornik: tl('Akwarium'), dziennik: tl('Dziennik'), info: tl('Ustawienia') }[navSec === 'kalkulator' && key === 'info' ? 'info' : navSec] || 'DoseMyTank'));
   const anc = render.anchor && document.getElementById(render.anchor); render.anchor = null;
   if (anc) anc.scrollIntoView(); else if (!render.keepScroll) window.scrollTo(0, 0); render.keepScroll = false;
   scrollFade(main);

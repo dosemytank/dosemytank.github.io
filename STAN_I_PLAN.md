@@ -1,6 +1,6 @@
-# DoseMyTank (dawniej Akwarysta) – stan aplikacji i plan dalszych prac (20.11.2026, wersja 8.0)
+# DoseMyTank (dawniej Akwarysta) – stan aplikacji i plan dalszych prac (20.11.2026, wersja 8.5.1)
 
-Stan wg repozytorium: wersja 6.9, ok. 4,7 tys. linii JS, 65 testów jednostkowych (przechodzą), 2 testy E2E (telefon, UX). Szczegóły i uzasadnienia starszych decyzji: `AUDYT.md` oraz dokumenty audytu v3 i v6 w projekcie.
+Stan wg repozytorium: wersja 8.5.1, interfejs EN/PL/DE, 160 testów jednostkowych i 9 przeglądarkowych (GitHub Actions przy każdym pushu). Szczegóły i uzasadnienia decyzji: `AUDYT.md`. Starsze wpisy niżej zostają jako historia – np. `zakupy.js` wrócił w 7.11 (lista zakupów z przepisu), `kalkulator.js` usunięty w 8.5.1.
 
 
 ## 8.0 – wersja międzynarodowa (20.11.2026)
@@ -14,7 +14,8 @@ Angielski jest językiem domyślnym, polski w pełni obsługiwany.
 - [x] PWA: `manifest.json` (EN) i `manifest-pl.json` (wybierany w `app.html`), skróty, zrzuty; `sw.js` 8.0.0 z oboma językami i stronami.
 - [x] Udostępnianie: przycisk linku do bieżącego ekranu, angielskie adresy (`#/calculator/remineralization`, `#/tools/co2` …). Zgłaszanie błędów: Ustawienia → Pomoc i kontakt (GitHub Issues z wersją i przeglądarką), `.github/ISSUE_TEMPLATE`.
 - [x] Testy: `tests/i18n.test.js`, `tests/weryfikacja.test.js` (niezależna weryfikacja chemii), `tests/e2e_i18n.py`, `tests/e2e_strona.py`, `tests/e2e_offline.py`; dotychczasowe testy E2E działają w PL (`tests/pl_lang.py`).
-- [ ] Do decyzji: dawka mikro PPS-Pro (oryginał: 0,5 ml / 40 l, w aplikacji 1 ml), autor i kontakt poza GitHubem, własna domena, waluta kosztu w EN.
+- [x] 8.5.1: dawka mikro PPS-Pro 0,5 ml / 40 l (za autorem metody); kontakt mailowy (8.3–8.4).
+- [ ] Do decyzji: własna domena, waluta kosztu w EN i DE (teraz bez symbolu waluty).
 
 ## 0. Przebudowa kalkulatora 7.0 – postęp (19.11.2026)
 

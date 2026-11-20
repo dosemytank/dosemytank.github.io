@@ -18,10 +18,10 @@ DoseMyTank is a web app (installable PWA) that works offline and keeps all data 
 | `de/index.html`, `de/ueber.html`, `de/kontakt.html` | German website |
 | `pl/` | Polish website (`index.html`, `o-aplikacji.html`, `kontakt.html`) |
 | `app.html` | The app (single page, hash routes such as `#/calculator/remineralization`) |
-| `i18n.js`, `i18n-en.js`, `i18n-de.js` | Language system, English and German dictionaries (`i18n-de.js` is loaded only with the German UI; a missing German string falls back to English) |
+| `i18n.js`, `i18n-en.js`, `i18n-de.js` | Language system, English and German dictionaries (dictionaries are loaded only when needed: none for Polish, `i18n-en.js` for English, both for German – a missing German string falls back to English) |
 | `chem.js`, `calc.js`, `nawozy-*.js`, `logic.js`, `clone.js` | Calculation engine (pure functions, tested in Node) |
 | `kalk-*.js`, `app.js`, `tools.js`, `woda.js`, … | Screens |
-| `sw.js`, `manifest.json`, `manifest-pl.json` | PWA: offline cache, install |
+| `sw.js`, `manifest.json`, `manifest-pl.json`, `manifest-de.json` | PWA: offline cache, install |
 | `tests/` | Unit tests (Node) and browser tests (Playwright) |
 
 ## Languages
@@ -50,8 +50,10 @@ npm run test:e2e             # browser tests: both languages, mobile layout, off
 python3 tests/zrzuty_strony.py   # regenerate website screenshots (EN + PL) and link previews
 ```
 
+GitHub Actions (`.github/workflows/test.yml`) runs the unit and browser tests on every push.
+
 No build step and no dependencies at runtime. Release: bump the version in `package.json`, `sw.js` (`CACHE`) and `app.html` (`APP_VERSION`).
 
 ## Feedback
 
-Bugs and ideas: [GitHub Issues](https://github.com/dosemytank/dosemytank.github.io/issues) or the [feedback page](https://dosemytank.github.io/feedback.html).
+Bugs and ideas: dosemytank@gmail.com or the [feedback page](https://dosemytank.github.io/feedback.html).

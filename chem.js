@@ -51,7 +51,8 @@ function ecTds(ppm) {
 function parseFormula(str) {
   const s = String(str || '').replace(/\s+/g, '').replace(/[₀-₉]/g, c => String('₀₁₂₃₄₅₆₇₈₉'.indexOf(c)));
   if (!s) throw new Error(tl('Pusty wzór'));
-  const parts = s.split(/[·.*•]/).filter(Boolean); const total = {}; let water = 0;
+  // 8.5.1: ułamkowa liczba H₂O zapisana z kropką (CuSO4.2.5H2O, CaSO4·0.5H2O) – kropka dziesiętna → przecinek, żeby nie była separatorem
+  const parts = s.replace(/([·.*•])(\d+)\.(\d+)(?=[A-Z(])/g, '$1$2,$3').split(/[·.*•]/).filter(Boolean); const total = {}; let water = 0;
   for (let pi = 0; pi < parts.length; pi++) {
     let p = parts[pi], k = 1; const m = p.match(/^(\d+(?:,\d+)?)(?=[A-Z(])/);
     if (m && pi > 0) { k = parseFloat(m[1].replace(',', '.')); p = p.slice(m[1].length); }
@@ -120,7 +121,7 @@ const MATERIALS = {
   ZnNO32: { name: tl('Azotan cynku'), el: { Zn: 1, N: 2, O: 6 }, ions: { Zn: 1, NO3: 2 }, hyd: [0, 6], def: 6, sol: 120, grp: 'mikro', f: 'Zn(NO₃)₂' },
   CoSO4: { name: tl('Siarczan kobaltu'), el: { Co: 1, S: 1, O: 4 }, ions: { Co: 1, SO4: 1 }, hyd: [0, 1, 7], def: 7, sol: 36, grp: 'mikro' },
   CoCl2: { name: tl('Chlorek kobaltu'), el: { Co: 1, Cl: 2 }, ions: { Co: 1, Cl: 2 }, hyd: [0, 6], def: 6, sol: 53, grp: 'mikro' },
-  Borax: { name: tl('Boraks'), el: { Na: 2, B: 4, O: 7 }, ions: { Na: 2, B: 4 }, hyd: [0, 5, 10], def: 10, sol: 5.1, grp: 'mikro', f: 'Na₂B₄O₇' },
+  Borax: { name: tl('Boraks'), el: { Na: 2, B: 4, O: 7 }, ions: { Na: 2, B: 4 }, hyd: [0, 5, 10], def: 10, sol: 2.6, grp: 'mikro', f: 'Na₂B₄O₇' },
   Na2EDTA: { name: tl('EDTA disodowa (do chelatowania)'), el: { C: 10, H: 14, N: 2, Na: 2, O: 8 }, ions: { Na: 2 }, hyd: [0, 2], def: 2, sol: 10, grp: 'inne', f: 'Na₂EDTA' },
   Na4EDTA: { name: tl('EDTA tetrasodowa (do chelatowania)'), el: { C: 10, H: 12, N: 2, Na: 4, O: 8 }, ions: { Na: 4 }, hyd: [0, 2, 4], def: 2, sol: 50, grp: 'inne', f: 'Na₄EDTA' },
   Na2MoO4: { name: tl('Molibdenian sodu'), el: { Na: 2, Mo: 1, O: 4 }, ions: { Na: 2, Mo: 1 }, hyd: [0, 2], def: 2, sol: 84, grp: 'mikro', f: 'Na₂MoO₄' },

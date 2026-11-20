@@ -1,0 +1,35 @@
+# Testy przy każdym pushu i pull requeście: jednostkowe (Node) i przeglądarkowe (Playwright, Chromium).
+# Zrzuty ekranów z testów przeglądarkowych są do pobrania jako artefakt przebiegu.
+name: Testy
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm test
+  e2e:
+    runs-on: ubuntu-latest
+    needs: unit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r tests/requirements-e2e.txt
+      - run: python -m playwright install --with-deps chromium
+      - run: python3 tests/e2e_all.py /tmp/zrzuty
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: zrzuty-e2e
+          path: /tmp/zrzuty
+          retention-days: 7

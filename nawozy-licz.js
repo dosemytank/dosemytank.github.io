@@ -161,12 +161,12 @@ function sucho({ rows, V, n, custom = [], prodOf = () => null, edta = '' }) {
   return { plan, items, prodItems, p };
 }
 // 7.4: typowy tydzień w metodach EI i PPS-Pro (mg/l) – do porównania z wynikiem.
-// EI – cele tygodniowe z przepisu; PPS-Pro – z przepisu: makro i mikro (29 g CSM+B na 500 ml), 1 ml każdej na 40 l codziennie.
+// EI – cele tygodniowe z przepisu; PPS-Pro – z przepisu: makro 1 ml, mikro (29 g CSM+B na 500 ml) 0,5 ml na 40 l codziennie.
 function metody() {
   const E = D.DIY.ei, Pp = D.DIY.ppspro, conc = X.solution(Pp.items, Pp.bottle).conc, k = Pp.doseMl / Pp.perLiters * Pp.n, pps = {};
   for (const ion in conc) pps[ion] = conc[ion] * k;
   const csm = PRODS.find(p => p.name === 'Plantex CSM+B');
-  if (csm) { const gl = 29 / (Pp.bottle / 1000); for (const ion in csm.ppm) pps[ion] = (pps[ion] || 0) + gl * csm.ppm[ion] / 1000 * k; }
+  if (csm) { const gl = 29 / (Pp.bottle / 1000); const km = Pp.microMl / Pp.perLiters * Pp.n; for (const ion in csm.ppm) pps[ion] = (pps[ion] || 0) + gl * csm.ppm[ion] / 1000 * km; }
   return { EI: { ...E.week, ...E.weekMicro }, 'PPS-Pro': pps };
 }
 /* ---------- plany dawkowania (Ile dawać) ----------

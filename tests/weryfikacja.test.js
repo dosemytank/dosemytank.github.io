@@ -101,3 +101,11 @@ test('CSM+B (Plantex / Plant-Prod) – skład zgodny z gwarantowaną analizą pr
   assert.deepStrictEqual(p.ppm, { Fe: 70, Mn: 20, Zn: 4, Cu: 1, B: 13, Mo: 0.6 }); // mg na 1 g
   assert.strictEqual(p.unit, 'g');
 });
+
+test('boraks: rozpuszczalność w g formy bezwodnej (ok. 5 g dekahydratu na 100 ml w 20 °C → ok. 2,6 g Na₂B₄O₇)', () => {
+  const NaB = 2 * A.Na + 4 * A.B + 7 * A.O, dec = NaB + 10 * W;
+  close(X.MATERIALS.Borax.sol, 5.0 * NaB / dec, 0.05);
+  // 3 g dekahydratu w 50 ml: 6 g/100 ml > 5 g/100 ml – nie może wyjść „rozpuści się”
+  const r = X.solution([{ mat: 'Borax', hyd: 10, g: 3 }], 50);
+  assert.ok(r.rows[0].ratio > 1, 'ratio ' + r.rows[0].ratio);
+});

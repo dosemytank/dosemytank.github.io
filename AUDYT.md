@@ -1,6 +1,16 @@
 # DoseMyTank (dawniej Akwarysta) – audyt i plan rozwoju (v4.0 PRO, 17.11.2026; historia v3.0 niżej)
 
 
+## Wersja 8.5.1 – poprawki z audytu 8.5 (20.11.2026)
+- Język przy pierwszym uruchomieniu: `app.html` wybiera język tak samo jak `i18n.js` (cała lista `navigator.languages`, dane `akwa.v2–v4` → PL). Wcześniej np. przeglądarka „fr, de” dawała niemiecki interfejs bez niemieckiego słownika i angielski manifest.
+- Słowniki tylko dla potrzebnego języka: PL bez słownika, EN – `i18n-en.js`, DE – oba; przy zmianie języka brakujące są dociągane (`setLang`).
+- Boraks: rozpuszczalność 2,6 g formy bezwodnej / 100 ml (było 5,1 – wartość dla dekahydratu); test w `weryfikacja.test.js`.
+- PPS-Pro: mikro 0,5 ml na 40 l dziennie (za stroną autora metody; było 1 ml), makro bez zmian (1 ml). Zmienia porównanie „Jak to wypada przy EI i PPS-Pro” (Fe 0,355 zamiast 0,71 mg/l na tydzień) i opis przepisu.
+- Wzory własnych soli: ułamek wody z kropką (`CuSO4.2.5H2O`, `CaSO4·0.5H2O`) działa jak z przecinkiem.
+- Service worker: przy słabym zasięgu po 3 s odpowiada kopia z pamięci, świeży plik zapisuje się na następny raz.
+- Dostępność: niewidoczny nagłówek h1 na ekranach bez tytułu, pełny kontrast podpisów w kartach wyboru, paski zdjęć i zrzutów na stronach startowych dostępne z klawiatury, baner innej wersji językowej jako `<aside>`.
+- Porządki: przywrócone GitHub Actions (`.github/workflows/test.yml`: `npm test` i testy przeglądarkowe, zrzuty jako artefakt); usunięty martwy `kalkulator.js`; 8 nieużywanych tekstów usuniętych ze słowników EN/DE (stare szablony zgłoszeń z GitHuba); README bez linku do GitHub Issues.
+
 ## Wersja 8.4.1 – licznik odwiedzin (20.11.2026)
 - Cloudflare Web Analytics (bez ciasteczek) na stronach informacyjnych EN/PL i 404; aplikacja (app.html) bez licznika. Poprawione zdania o prywatności na stronach startowych i w O aplikacji.
 
