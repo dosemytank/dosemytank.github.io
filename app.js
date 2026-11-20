@@ -756,6 +756,8 @@ PAGES.info = root => {
     h('span', {}, title), sub ? h('small', {}, sub) : null, h('i', { html: icon('chevr', 16) }));
   root.append(h('h2', { class: 'h2' }, tl('Pomoc i kontakt')), h('div', { class: 'lrows' },
     linkRow(issue('bug', tl('Błąd: '), tl('**Co się stało?**\n\n**Czego się spodziewałeś?**\n\n**Kroki**\n1. \n\n**Obliczenie (jeśli dotyczy)** – wklej wynik z przycisku „Kopiuj wynik”\n\n---\n{0}', env)), tl('Zgłoś błąd'), tl('GitHub – wersja i przeglądarka wpiszą się same')),
+    // 8.3: mail – bez konta na GitHubie; temat i opis wypełnione, z wersją i przeglądarką
+    linkRow(`mailto:dosemytank@gmail.com?subject=${encodeURIComponent('DoseMyTank: ')}&body=${encodeURIComponent(tl('Co się stało (albo czego brakuje)?\n\n\nKroki / szczegóły:\n\n\n---\n{0}', env))}`, tl('Napisz maila'), tl('dosemytank@gmail.com – bez konta na GitHubie')),
     linkRow(issue('enhancement', tl('Pomysł: '), tl('**Co chcesz zrobić?**\n\n**Dlaczego to się przyda?**\n\n---\n{0}', env)), tl('Zaproponuj funkcję albo nawóz do bazy'), ''),
     linkRow(site ? site + 'o-aplikacji.html' : 'about.html', tl('O aplikacji'), tl('Jak liczy, skąd dane o nawozach, prywatność')),
     linkRow(site || './', tl('Strona DoseMyTank'), tl('Opis funkcji, instalacja, pytania')),

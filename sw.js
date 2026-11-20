@@ -2,7 +2,7 @@
 // Od 7.12 prefiks dosemytank-; przy aktywacji kasujemy też stare cache z prefiksem akwarysta-.
 // Dane użytkownika są w localStorage (akwa.v4, dmt.lang) – service worker ich nie dotyka, aktualizacja ich nie usuwa.
 // 8.0: oba języki offline (i18n.js, i18n-en.js – zmiana języka nie wymaga sieci), strony EN i PL, manifesty EN i PL.
-const CACHE = 'dosemytank-v8.2.1';
+const CACHE = 'dosemytank-v8.3.0';
 const FILES = ['./', './index.html', './about.html', './feedback.html', './pl/', './pl/index.html', './pl/o-aplikacji.html', './pl/kontakt.html',
   './site.css', './site.js', './manifest-pl.json', './i18n.js', './i18n-en.js',
   './app.html', './tokens.css', './styles.css', './products.js', './calc.js', './chem.js', './nawozy-dane.js', './logic.js', './diag.js', './store.js', './core.js', './app.js', './tools.js', './clone.js', './pro-wspolne.js', './receptury.js', './woda.js', './nawozy-licz.js', './kalk-wspolne.js', './kalk-makro.js', './kalk-mikro.js', './kalk-gotowe.js', './kalk-receptury.js', './kalk-historia.js', './kalk-nawoz.js', './zakupy.js', './nawozenie.js', './pomoc.js', './odpowiednik.js', './pomoc-ekranow.js', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];

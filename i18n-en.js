@@ -2,6 +2,9 @@
    Nowy tekst w kodzie: tl('Tekst po polsku {0}', arg) + wpis tutaj. Placeholdery {0}, {1}… i znaczniki HTML muszą się zgadzać.
    Brakujące i niespójne tłumaczenia wykrywa test: npm test (tests/i18n.test.js). */
 var I18N_EN = {
+"Co się stało (albo czego brakuje)?\n\n\nKroki / szczegóły:\n\n\n---\n{0}": "What happened (or what's missing)?\n\n\nSteps / details:\n\n\n---\n{0}",
+"Napisz maila": "Send an email",
+"dosemytank@gmail.com – bez konta na GitHubie": "dosemytank@gmail.com – no GitHub account needed",
 "DoseMyTank się przydaje?": "Finding DoseMyTank useful?",
 "Aplikacja jest darmowa, bez reklam i konta. Jeśli chcesz, możesz postawić kawę – to pomaga w rozwoju kolejnych wersji.": "The app is free, with no ads and no account. If you like, you can buy me a coffee – it helps keep new versions coming.",
 "Nie pokazuj więcej": "Don't show again",
