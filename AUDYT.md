@@ -1,6 +1,9 @@
 # DoseMyTank (dawniej Akwarysta) – audyt i plan rozwoju (v4.0 PRO, 17.11.2026; historia v3.0 niżej)
 
 
+## Wersja 8.4.1 – licznik odwiedzin (20.11.2026)
+- Cloudflare Web Analytics (bez ciasteczek) na stronach informacyjnych EN/PL i 404; aplikacja (app.html) bez licznika. Poprawione zdania o prywatności na stronach startowych i w O aplikacji.
+
 ## Wersja 8.4 – bez linków do GitHuba (20.11.2026)
 - Zgłoszenia tylko mailem (dosemytank@gmail.com): w aplikacji „Zgłoś błąd” i „Zaproponuj funkcję” otwierają mail z szablonem i danymi technicznymi; strony Feedback/Kontakt – dwie karty mailto. Usunięte linki do repozytorium i GitHub Issues ze stron i aplikacji (repozytorium pozostaje publiczne – wymóg darmowego GitHub Pages).
 
