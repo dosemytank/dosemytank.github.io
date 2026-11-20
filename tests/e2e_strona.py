@@ -1,6 +1,6 @@
-"""Strony informacyjne (EN i PL): linki, SEO i wygląd.
+"""Strony informacyjne (EN, PL i DE): linki, SEO i wygląd.
 - każdy link wewnętrzny i każdy obraz prowadzi do istniejącego pliku, kotwice (#…) istnieją na stronie docelowej,
-- jeden <h1>, tytuł, opis, canonical, hreflang EN/PL/x-default wzajemnie zgodne, Open Graph z istniejącym obrazem,
+- jeden <h1>, tytuł, opis, canonical, hreflang EN/PL/DE/x-default wzajemnie zgodne, Open Graph z istniejącym obrazem,
 - sitemap.xml zawiera wszystkie strony, robots.txt wskazuje sitemap,
 - brak przewijania w poziomie (360 px i 1280 px), brak błędów JS, treść indeksowalna bez JavaScriptu.
 Uruchom: python3 tests/e2e_strona.py [katalog_na_zrzuty]"""
@@ -11,8 +11,8 @@ from playwright.sync_api import sync_playwright
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SHOTS = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'shots', 'e2e', 'e2e_strona'); os.makedirs(SHOTS, exist_ok=True)
 SITE = 'https://dosemytank.github.io/'
-PAGES = ['index.html', 'about.html', 'feedback.html', 'pl/index.html', 'pl/o-aplikacji.html', 'pl/kontakt.html']
-PAIRS = {'index.html': 'pl/index.html', 'about.html': 'pl/o-aplikacji.html', 'feedback.html': 'pl/kontakt.html'}
+PAGES = ['index.html', 'about.html', 'feedback.html', 'pl/index.html', 'pl/o-aplikacji.html', 'pl/kontakt.html', 'de/index.html', 'de/ueber.html', 'de/kontakt.html']
+PAIRS = {'index.html': ('pl/index.html', 'de/index.html'), 'about.html': ('pl/o-aplikacji.html', 'de/ueber.html'), 'feedback.html': ('pl/kontakt.html', 'de/kontakt.html')}
 url_of = lambda p: SITE + (p[:-10] if p.endswith('index.html') else p)
 
 class Scan(HTMLParser):
@@ -63,17 +63,17 @@ for p, s in parsed.items():
             rel = os.path.relpath(target, ROOT)
             ids = parsed[rel].ids if rel in parsed else set(re.findall(r'id="([^"]+)"', open(target, encoding='utf8').read()))
             if frag not in ids and not frag.startswith('/'): fail.append(f'{p}: kotwica {href} nie istnieje')
-for en, pl in PAIRS.items():
-    for p in (en, pl):
+for en, (pl, de) in PAIRS.items():
+    for p in (en, pl, de):
         hl = parsed[p].meta.get('hreflang', {})
-        if hl.get('en') != url_of(en) or hl.get('pl') != url_of(pl) or hl.get('x-default') != url_of(en): fail.append(f'{p}: hreflang {hl}')
+        if hl.get('en') != url_of(en) or hl.get('pl') != url_of(pl) or hl.get('de') != url_of(de) or hl.get('x-default') != url_of(en): fail.append(f'{p}: hreflang {hl}')
 sm = open(os.path.join(ROOT, 'sitemap.xml'), encoding='utf8').read()
 for p in PAGES:
     if f'<loc>{url_of(p)}</loc>' not in sm: fail.append(f'sitemap: brak {url_of(p)}')
 if 'Sitemap: https://dosemytank.github.io/sitemap.xml' not in open(os.path.join(ROOT, 'robots.txt')).read(): fail.append('robots.txt bez sitemap')
 
 with sync_playwright() as pw:
-    b = pw.chromium.launch()
+    b = pw.chromium.launch(executable_path=os.environ.get('CHROME') or None)
     for w in (360, 1280):
         ctx = b.new_context(viewport={'width': w, 'height': 900}, service_workers='block'); pg = ctx.new_page(); errs = []
         pg.on('pageerror', lambda e: errs.append(str(e)))
@@ -91,6 +91,14 @@ with sync_playwright() as pw:
     if not pg.is_visible('#altlang'): fail.append('brak podpowiedzi wersji PL dla przeglądarki PL')
     pg.click('#altlang a'); pg.wait_for_timeout(150)
     if pg.evaluate("localStorage.getItem('dmt.lang')") != 'pl': fail.append('wybór PL z podpowiedzi nie zapamiętany')
+    ctx.close()
+    # 8.5: przeglądarka DE na stronie EN – widać tylko podpowiedź niemiecką
+    ctx = b.new_context(locale='de-DE', service_workers='block'); pg = ctx.new_page()
+    pg.add_init_script("Object.defineProperty(navigator, 'languages', { get: () => ['de-DE', 'de'] })")
+    pg.goto('file://' + os.path.join(ROOT, 'index.html')); pg.wait_for_timeout(150)
+    if not pg.is_visible('.banner[data-lang="de"]') or pg.is_visible('#altlang'): fail.append('podpowiedź wersji DE dla przeglądarki DE')
+    pg.click('.banner[data-lang="de"] a'); pg.wait_for_timeout(150)
+    if pg.evaluate("localStorage.getItem('dmt.lang')") != 'de': fail.append('wybór DE z podpowiedzi nie zapamiętany')
     ctx.close(); b.close()
 if fail: print('BŁĘDY:\n' + '\n'.join(fail)); sys.exit(1)
 print(f'OK – {len(PAGES)} stron: linki, SEO, hreflang, sitemap, wygląd 360/1280 px')

@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://dosemytank.github.io/">
 <link rel="alternate" hreflang="en" href="https://dosemytank.github.io/">
 <link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/">
+<link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/">
 <link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/">
 <meta name="theme-color" content="#0e3b2c">
 <link rel="manifest" href="manifest.json">
@@ -16,6 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="de_DE">
 <meta property="og:site_name" content="DoseMyTank">
 <meta property="og:title" content="DoseMyTank – Your aquarium. Your formula.">
 <meta property="og:description" content="Make your own planted tank fertilizers from dry salts, calculate nutrient concentrations and remineralize RO water. Free, no sign-up, works offline.">
@@ -31,7 +33,7 @@
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"DoseMyTank","url":"https://dosemytank.github.io/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser, installable PWA)","inLanguage":["en","pl"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Aquarium fertilizer calculator for planted tanks: DIY fertilizers from dry salts (EI, PPS-Pro, PMDD), commercial fertilizer dosing, RO water remineralization and a tank log. Works offline, no account."}
+{"@context":"https://schema.org","@type":"WebApplication","name":"DoseMyTank","url":"https://dosemytank.github.io/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser, installable PWA)","inLanguage":["en","pl","de"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Aquarium fertilizer calculator for planted tanks: DIY fertilizers from dry salts (EI, PPS-Pro, PMDD), commercial fertilizer dosing, RO water remineralization and a tank log. Works offline, no account."}
 </script>
 <!-- Cloudflare Web Analytics: anonimowy licznik odwiedzin stron informacyjnych (bez ciasteczek); aplikacja (app.html) go nie ma -->
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f621a37381be44728b366bba49923208"}'></script>
@@ -44,13 +46,14 @@
   <br><button id="copy" type="button" data-done="Copied ✓" data-prompt="Copy the link:">Copy link</button>
 </div>
 <div class="banner" id="altlang" data-lang="pl" hidden lang="pl">Wolisz po polsku? <a href="pl/" data-setlang="pl">Przejdź do polskiej wersji →</a></div>
+<div class="banner" data-lang="de" hidden lang="de">Lieber auf Deutsch? <a href="de/" data-setlang="de">Zur deutschen Version →</a></div>
 
 <header class="hero">
   <div class="wrap">
     <div class="top">
       <a class="brand" href="./"><span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15"/><path d="M5 19c3-5 6-8 10-10"/></svg></span>DoseMyTank</a>
       <nav aria-label="Page sections"><a href="#features">Features</a><a href="#example">Example</a><a href="#faq">FAQ</a><a href="about.html">About</a><a class="navkofi" aria-label="Ko-fi" title="Ko-fi" href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v2M12 3v2"/></svg><span>Support</span></a></nav>
-      <a class="lang" href="pl/" hreflang="pl" lang="pl" data-setlang="pl" title="Polska wersja">PL</a>
+      <span class="langs"><a class="lang" href="de/" hreflang="de" lang="de" data-setlang="de" title="Deutsche Version">DE</a><a class="lang" href="pl/" hreflang="pl" lang="pl" data-setlang="pl" title="Polska wersja">PL</a></span>
       <a class="btn sm" href="app.html">Open app</a>
     </div>
     <div class="heroGrid">
@@ -64,7 +67,7 @@
           <button class="btn line" id="install" type="button" hidden>Install on this device</button>
           <a id="howto" href="#installation">How to install</a>
         </div>
-        <p class="meta"><span>English and Polish</span><span>Data stays on your device</span><span>No ads</span></p>
+        <p class="meta"><span>English, German and Polish</span><span>Data stays on your device</span><span>No ads</span></p>
       </div>
       <div class="crop"><picture><source srcset="img/en/kalkulator-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/en/kalkulator.webp" width="708" height="1718" alt="Make fertilizer: a two-bottle recipe for a 112 L tank – macro from KNO₃, KH₂PO₄, K₂SO₄ and MgSO₄·7H₂O, micro from CSM+B, 30 ml from each bottle three times a week"></picture></div>
     </div>
@@ -216,8 +219,8 @@
 
 <footer>
   <div class="wrap foot">
-    <p>DoseMyTank · version 8.4.1. Results are supporting calculations and don't replace water tests. The author isn't responsible for the effects of dosing fertilizers and chemicals in your tank.</p>
-    <nav aria-label="Footer"><a href="app.html">Open app</a><a href="about.html">About</a><a href="feedback.html">Feedback</a><a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener">Ko-fi</a><a href="pl/" hreflang="pl" lang="pl" data-setlang="pl">Polski</a></nav>
+    <p>DoseMyTank · version 8.5.0. Results are supporting calculations and don't replace water tests. The author isn't responsible for the effects of dosing fertilizers and chemicals in your tank.</p>
+    <nav aria-label="Footer"><a href="app.html">Open app</a><a href="about.html">About</a><a href="feedback.html">Feedback</a><a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener">Ko-fi</a><a href="de/" hreflang="de" lang="de" data-setlang="de">Deutsch</a><a href="pl/" hreflang="pl" lang="pl" data-setlang="pl">Polski</a></nav>
   </div>
 </footer>
 <script src="site.js"></script>

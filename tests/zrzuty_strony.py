@@ -1,5 +1,6 @@
-"""Zrzuty na strony startowe (EN: img/en/*.webp, PL: img/*.webp) – jasne i ciemne, z tymi samymi danymi przykładowymi,
-oraz podglądy linków 1200×630 (img/og.png – EN, img/og-pl.png – PL).
+"""Zrzuty na strony startowe (EN: img/en/*.webp, PL: img/*.webp, DE: img/de/*.webp) – jasne i ciemne, z tymi samymi danymi przykładowymi,
+oraz podglądy linków 1200×630 (img/og.png – EN, img/og-pl.png – PL, img/og-de.png – DE).
+Tylko wybrane języki: LANGS=de python3 tests/zrzuty_strony.py; inna przeglądarka: CHROME=/ścieżka/do/chrome.
 Uruchom przy wydaniu, gdy zmienia się wygląd: python3 tests/zrzuty_strony.py  (wymaga Playwright + Pillow).
 Dane: akwarium 112 l z CO₂, 12 tygodni pomiarów NO₃ / PO₄ / K / KH / GH / pH, cotygodniowe podmiany."""
 import os, io, threading, http.server, functools
@@ -30,14 +31,20 @@ def cap(pg, path, el=None):
 OG = {
   'en': ('Your aquarium.<br>Your formula.', 'DIY fertilizers from dry salts, commercial fertilizer dosing, RO remineralization and a tank log. Free, no sign-up, works offline.'),
   'pl': ('Twoje akwarium.<br>Twój przepis.', 'Nawozy z soli, dawki gotowych nawozów, mineralizacja wody RO i dziennik akwarium. Za darmo, bez konta, działa offline.'),
+  'de': ('Dein Aquarium.<br>Deine Formel.', 'Dünger aus Salzen, Dosierung von Fertigdüngern, Osmosewasser aufhärten und Logbuch. Kostenlos, ohne Anmeldung, offline.'),
 }
+OUT = {'en': os.path.join(IMG, 'en'), 'pl': IMG, 'de': os.path.join(IMG, 'de')}
+LOC = {'en': 'en-US', 'pl': 'pl-PL', 'de': 'de-DE'}
+LANGS = [l for l in os.environ.get('LANGS', 'en,pl,de').split(',') if l in OUT]
 with sync_playwright() as p:
-    b = p.chromium.launch()
-    for lang, out in [('en', os.path.join(IMG, 'en')), ('pl', IMG)]:
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None)
+    for lang, out in [(l, OUT[l]) for l in LANGS]:
         os.makedirs(out, exist_ok=True)
         for scheme, suf in [('light', ''), ('dark', '-dark')]:
-            ctx = b.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=2, color_scheme=scheme, locale='en-US' if lang == 'en' else 'pl-PL', service_workers='block')
+            ctx = b.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=2, color_scheme=scheme, locale=LOC[lang], service_workers='block')
             ctx.add_init_script(f"try {{ localStorage.setItem('dmt.lang', '{lang}') }} catch (e) {{}}")
+            # SHOT_FONT=Roboto: font jak na Androidzie (Inter z cyframi tabelarycznymi rysuje szeroki łącznik: „3 -mal”, „PPS - Pro”)
+            if os.environ.get('SHOT_FONT'): ctx.add_init_script("document.addEventListener('DOMContentLoaded', () => { const s = document.createElement('style'); s.textContent = 'body{font-family:%s,sans-serif}'; document.head.append(s); })" % os.environ['SHOT_FONT'])
             pg = ctx.new_page(); pg.goto(URL); pg.wait_for_timeout(300)
             for _ in range(3):
                 pg.evaluate(SEED); pg.wait_for_timeout(400); pg.evaluate('save()'); pg.reload(); pg.wait_for_timeout(400)
@@ -51,7 +58,7 @@ with sync_playwright() as p:
             ctx.close()
         # podgląd linku (Facebook, Reddit, komunikatory) 1200×630 – prawdziwe zrzuty na tle marki
         h1, sub = OG[lang]; base = URL.replace('app.html', '')
-        rel = 'img/en/' if lang == 'en' else 'img/'
+        rel = {'en': 'img/en/', 'pl': 'img/', 'de': 'img/de/'}[lang]
         ctx = b.new_context(viewport={'width': 1200, 'height': 630}, device_scale_factor=1); pg = ctx.new_page(); pg.goto(base + 'tokens.css')
         pg.set_content(f'''<html><head></head><body style="margin:0;width:1200px;height:630px;overflow:hidden;background:#0e3b2c;color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;position:relative">
           <div style="position:absolute;left:72px;top:72px;font-size:30px;font-weight:700;color:#a8e59b;letter-spacing:-.02em">DoseMyTank</div>
@@ -60,6 +67,6 @@ with sync_playwright() as p:
           <img src="{base}{rel}kalkulator.webp" style="position:absolute;left:684px;top:100px;width:254px;border-radius:16px;box-shadow:0 0 0 2px #2a6a4f">
           <img src="{base}{rel}wykresy.webp" style="position:absolute;left:948px;top:166px;width:254px;border-radius:16px;box-shadow:0 0 0 2px #2a6a4f">
         </body></html>''', wait_until='networkidle'); pg.wait_for_timeout(300)
-        pg.screenshot(path=os.path.join(IMG, 'og.png' if lang == 'en' else 'og-pl.png')); print(lang, 'og'); ctx.close()
+        pg.screenshot(path=os.path.join(IMG, {'en': 'og.png', 'pl': 'og-pl.png', 'de': 'og-de.png'}[lang])); print(lang, 'og'); ctx.close()
     b.close()
 srv.shutdown()

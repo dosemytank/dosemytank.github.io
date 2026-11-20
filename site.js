@@ -1,4 +1,4 @@
-/* DoseMyTank – skrypt stron informacyjnych (EN i PL). Teksty są w HTML strony (atrybuty data-*), skrypt nie zawiera tekstów.
+/* DoseMyTank – skrypt stron informacyjnych (EN, PL i DE). Teksty są w HTML strony (atrybuty data-*), skrypt nie zawiera tekstów.
    - ostrzeżenie w przeglądarce Facebooka/Instagrama (instalacja i dane działają tylko w zwykłej przeglądarce),
    - przycisk instalacji (Chrome/Android), ukrywany w zainstalowanej aplikacji,
    - propozycja drugiej wersji językowej, gdy język przeglądarki do niej pasuje (bez przekierowania),
@@ -30,14 +30,15 @@
     window.addEventListener('appinstalled', function () { inst.hidden = true; });
   }
   // druga wersja językowa: tylko podpowiedź, gdy przeglądarka jest w tym języku i użytkownik nie wybrał inaczej
-  var alt = $('altlang');
-  if (alt) {
-    var want = alt.getAttribute('data-lang'), saved = null;
-    try { saved = localStorage.getItem('dmt.lang'); } catch (e) {}
-    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-    var first = String(langs[0] || '').toLowerCase().slice(0, 2);
+  // 8.5: kilka podpowiedzi (np. na angielskiej stronie: PL i DE) – pokazujemy co najwyżej tę jedną, która pasuje
+  var saved = null;
+  try { saved = localStorage.getItem('dmt.lang'); } catch (e) {}
+  var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+  var first = String(langs[0] || '').toLowerCase().slice(0, 2);
+  document.querySelectorAll('.banner[data-lang]').forEach(function (alt) {
+    var want = alt.getAttribute('data-lang');
     if ((saved ? saved === want : first === want) && document.documentElement.lang !== want) alt.hidden = false;
-  }
+  });
   // wybór wersji językowej z przełącznika zapamiętujemy – aplikacja otworzy się w tym języku
   document.querySelectorAll('a[data-setlang]').forEach(function (a) {
     a.addEventListener('click', function () { try { localStorage.setItem('dmt.lang', a.getAttribute('data-setlang')); } catch (e) {} });

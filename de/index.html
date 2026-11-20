@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="auto" data-sw="../sw.js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DoseMyTank – kostenloser Dünger-Rechner fürs Pflanzenaquarium</title>
+<meta name="description" content="Kostenloser Rechner für Aquariendünger: EI-, PPS-Pro- und PMDD-Rezepte aus Salzen, Dosierung von Fertigdüngern, Aufhärten von Osmosewasser und Logbuch fürs Pflanzenaquarium. Ohne Anmeldung, funktioniert offline.">
+<link rel="canonical" href="https://dosemytank.github.io/de/">
+<link rel="alternate" hreflang="en" href="https://dosemytank.github.io/">
+<link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/">
+<link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/">
+<link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/">
+<meta name="theme-color" content="#0e3b2c">
+<link rel="manifest" href="../manifest-de.json">
+<link rel="icon" href="../icon-192.png">
+<link rel="apple-touch-icon" href="../icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:site_name" content="DoseMyTank">
+<meta property="og:title" content="DoseMyTank – Dein Aquarium. Deine Formel.">
+<meta property="og:description" content="Wie viel Gramm Salz in die Flasche, wie viel ml Dünger, wie viel Salz ins Osmosewasser. EI, PPS-Pro und PMDD, Logbuch für Wassertests. Kostenlos, ohne Anmeldung, offline.">
+<meta property="og:url" content="https://dosemytank.github.io/de/">
+<meta property="og:image" content="https://dosemytank.github.io/img/og-de.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DoseMyTank: Düngerrezept für zwei Flaschen und Nitrat-Diagramm aus dem Aquarium-Logbuch">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DoseMyTank – Dein Aquarium. Deine Formel.">
+<meta name="twitter:description" content="Kostenlose Werkzeuge fürs Pflanzenaquarium: Dünger aus Salzen (EI, PPS-Pro, PMDD), Dosierung von Fertigdüngern, Aufhärten von Osmosewasser.">
+<meta name="twitter:image" content="https://dosemytank.github.io/img/og-de.png">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"DoseMyTank","url":"https://dosemytank.github.io/de/","applicationCategory":"UtilitiesApplication","operatingSystem":"Beliebig (Webbrowser, installierbare PWA)","inLanguage":["de","en","pl"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Dünger-Rechner fürs Pflanzenaquarium: Dünger aus Salzen (EI, PPS-Pro, PMDD), Dosierung von Fertigdüngern, Aufhärten von Osmosewasser und Logbuch. Funktioniert offline, ohne Konto."}
+</script>
+<!-- Cloudflare Web Analytics: anonimowy licznik odwiedzin stron informacyjnych (bez ciasteczek); aplikacja (app.html) go nie ma -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f621a37381be44728b366bba49923208"}'></script>
+</head>
+<body>
+
+<div id="fb" role="status" hidden>
+  <b>Du siehst diese Seite im Facebook-Browser.</b>
+  Um die App zu installieren und deine Daten sicher zu speichern, öffne diesen Link in deinem normalen Browser (Chrome oder Safari): Tippe auf „⋯“ in der Ecke und wähle „Im Browser öffnen“.
+  <br><button id="copy" type="button" data-done="Kopiert ✓" data-prompt="Link kopieren:">Link kopieren</button>
+</div>
+<div class="banner" id="altlang" data-lang="en" hidden lang="en">Prefer English? <a href="../" data-setlang="en">Go to the English version →</a></div>
+<div class="banner" data-lang="pl" hidden lang="pl">Wolisz po polsku? <a href="../pl/" data-setlang="pl">Przejdź do polskiej wersji →</a></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./"><span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15"/><path d="M5 19c3-5 6-8 10-10"/></svg></span>DoseMyTank</a>
+      <nav aria-label="Abschnitte"><a href="#funktionen">Funktionen</a><a href="#beispiel">Beispiel</a><a href="#faq">FAQ</a><a href="ueber.html">Über</a><a class="navkofi" aria-label="Ko-fi" title="Ko-fi" href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v2M12 3v2"/></svg><span>Unterstützen</span></a></nav>
+      <span class="langs"><a class="lang" href="../" hreflang="en" lang="en" data-setlang="en" title="English version">EN</a><a class="lang" href="../pl/" hreflang="pl" lang="pl" data-setlang="pl" title="Polska wersja">PL</a></span>
+      <a class="btn sm" href="../app.html?lang=de">App öffnen</a>
+    </div>
+    <div class="heroGrid">
+      <div class="heroTxt">
+        <p class="kicker">Kostenlose Werkzeuge fürs Pflanzenaquarium</p>
+        <h1>Dein Aquarium. Deine Formel.</h1>
+        <p class="sub">Stell deine eigenen Dünger her. Berechne Nährstoffkonzentrationen. Härte Osmosewasser auf. DoseMyTank sagt dir, <b>wie viel Gramm von jedem Salz in die Flasche kommen</b>, wie viele ml du dosierst und was das in deinem Aquarium in mg/l (ppm) bringt.</p>
+        <ul class="free" aria-label="Das Wichtigste"><li>Kostenlos</li><li>Ohne Anmeldung</li><li>Funktioniert offline</li></ul>
+        <div class="cta">
+          <a class="btn" href="../app.html?lang=de">App öffnen</a>
+          <button class="btn line" id="install" type="button" hidden>Auf diesem Gerät installieren</button>
+          <a id="howto" href="#installation">So installierst du sie</a>
+        </div>
+        <p class="meta"><span>Deutsch, Englisch und Polnisch</span><span>Daten bleiben auf deinem Gerät</span><span>Keine Werbung</span></p>
+      </div>
+      <div class="crop"><picture><source srcset="../img/de/kalkulator-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/de/kalkulator.webp" width="708" height="1830" alt="Dünger herstellen: Rezept für zwei Flaschen für ein 112-l-Aquarium – Makro aus KNO₃, KH₂PO₄, K₂SO₄ und MgSO₄·7H₂O, Mikro aus CSM+B, 30 ml aus jeder Flasche dreimal pro Woche"></picture></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="funktionen">
+  <div class="wrap">
+    <h2>Was du berechnen kannst</h2>
+    <p class="lead">Vier Werkzeuge decken ab, was die meisten Pflanzenaquarianer brauchen. Jedes zeigt seinen Rechenweg: die Salze, die Gramm, die Dosis und die resultierende Konzentration.</p>
+    <div class="fcards c4">
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/></svg></span>
+        <h3>Dünger aus Salzen selbst gemacht</h3>
+        <p>Gib Beckenvolumen, Licht und CO₂ ein und wähle einen Plan – die App wählt Salze und Dosis. Du erhältst Gramm pro Flasche, ml pro Dosis und den erwarteten wöchentlichen Anstieg von NO₃, PO₄, K, Mg und Fe.</p>
+        <ul><li>EI (Estimative Index), PPS-Pro und PMDD oder deine eigenen Rezepte</li><li>Makro- und Mikroflaschen oder Trockendüngung</li><li>Warnungen, wenn Salze ausfallen (z. B. Calcium mit Phosphat) oder sich nicht lösen</li><li>Einkaufsliste mit gängigen Namen (Kaliumnitrat, Bittersalz…)</li></ul></article>
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>
+        <h3>Osmosewasser aufhärten</h3>
+        <p>Wie viel Gips, Magnesiumsulfat und Kaliumhydrogencarbonat du einem Ansatz Osmosewasser für deine Ziel-GH und -KH zugibst, mit dem Ca : Mg-Verhältnis deiner Wahl.</p>
+        <ul><li>Calcium und Magnesium aus deinem Dünger werden berücksichtigt</li><li>Zubereitung Schritt für Schritt, mit Kontrolle von GH und KH</li><li>Leitfähigkeit (µS/cm) und TDS des fertigen Wassers</li></ul></article>
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="6" width="10" height="15" rx="2"/><path d="M10 3h4v3h-4z"/></svg></span>
+        <h3>Dosierung von Fertigdüngern</h3>
+        <p>Über 30 Dünger in der Bibliothek (Tropica, Seachem, Easy Life, CSM+B und mehr). Rechne die Herstellerdosis auf dein Becken um, sieh, was deine Dosis in mg/l bringt, oder erhalte die ml für ein Ziel.</p>
+        <ul><li>Bis zu drei Dünger nebeneinander vergleichen</li><li>Eigenes Produkt vom Etikett hinzufügen (% oder g/l, K₂O und P₂O₅ umgerechnet)</li><li>Einträge ohne vollständig veröffentlichte Zusammensetzung sind als ungefähr markiert</li></ul></article>
+      <article class="fcard"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/></svg></span>
+        <h3>Aquarium-Logbuch</h3>
+        <p>Wassertests, Wasserwechsel, Dosen und Notizen. Diagramme mit deinem Zielbereich, ein Erinnerungsplan, den du in den Kalender deines Handys exportieren kannst, und ein Hinweis, was du zuerst prüfen solltest.</p>
+        <ul><li>Mehrere Aquarien</li><li>Sicherung in eine Datei und Export als CSV</li></ul></article>
+    </div>
+    <ul class="fchips" aria-label="Weitere Werkzeuge">
+      <li>Nährstoffkonzentration einer Flasche</li><li>Nachbau eines Fertigdüngers aus Salzen</li><li>Testwert auf das Ziel korrigieren</li><li>Wasserwechsel-Rechner</li><li>CO₂ aus pH und KH</li><li>Umrechner: N ↔ NO₃, P₂O₅ ↔ PO₄, K₂O ↔ K, °dH ↔ ppm</li><li>Beckenvolumen aus den Maßen</li><li>PRO: Titration, KH-Senkung mit Säure, Salzanreicherung</li>
+    </ul>
+    <div class="shots s4">
+      <figure><picture><source srcset="../img/de/mineral-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/de/mineral.webp" loading="lazy" width="708" height="3612" alt="Osmosewasser aufhärten: Gramm CaSO₄·2H₂O, MgSO₄·7H₂O und KHCO₃ für 45 l Osmosewasser, Ziel GH 6 und KH 3"></picture><figcaption><b>Osmosewasser aufhärten</b><br>Salze für einen Ansatz Osmosewasser</figcaption></figure>
+      <figure><picture><source srcset="../img/de/gotowe-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/de/gotowe.webp" loading="lazy" width="708" height="1246" alt="Fertigdünger: Tagesdosis für ein 112-l-Aquarium und Anstieg von K und Fe nach einer Dosis und nach einer Woche"></picture><figcaption><b>Fertigdünger</b><br>Dosis und Anstieg pro Woche</figcaption></figure>
+      <figure><picture><source srcset="../img/de/wykresy-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/de/wykresy.webp" loading="lazy" width="780" height="1688" alt="Aquarium-Logbuch: Nitrat-Diagramm (NO₃) mit Zielband 10–30 mg/l über drei Monate"></picture><figcaption><b>Aquarium-Logbuch</b><br>Nitrat im Vergleich zum Zielbereich</figcaption></figure>
+      <figure><picture><source srcset="../img/de/korekta-dark.webp" media="(prefers-color-scheme: dark)"><img src="../img/de/korekta.webp" loading="lazy" width="780" height="1688" alt="Aquariumwerte korrigieren: aktueller Wert und Ziel für Nitrat, mit dem passenden Salz"></picture><figcaption><b>Aquariumwerte korrigieren</b><br>Vom Testergebnis zum Ziel</figcaption></figure>
+      <p class="shotsNote">Screenshots aus der App mit Beispieldaten.</p>
+    </div>
+  </div>
+</section>
+
+<section id="beispiel" class="alt">
+  <div class="wrap">
+    <h2>Beispiel: deine erste Flasche Dünger</h2>
+    <div class="example">
+      <div>
+        <ol class="steps">
+          <li><b>Beschreibe dein Aquarium</b><span>100 l Wasser, wenig Licht, ohne CO₂, 30 % Wasserwechsel pro Woche.</span></li>
+          <li><b>Wähle einen Plan</b><span>„Empfohlen“ – eine typische Startdosis für dein Licht. Sparsam, Mehr und EI sind nur einen Tipp entfernt.</span></li>
+          <li><b>Hake die Salze an, die du hast</b><span>Standard sind die vier Grundsalze plus die Spurenelementmischung CSM+B. Salze, die nicht in eine Flasche dürfen, werden automatisch aufgeteilt.</span></li>
+          <li><b>Ansetzen und dosieren</b><span>Wiege die Salze in zwei 500-ml-Flaschen ab und gib dreimal pro Woche 30 ml aus jeder. Eine Flasche reicht etwa 6 Wochen.</span></li>
+          <li><b>Testen und anpassen</b><span>Teste in den ersten 2–3 Wochen NO₃ und PO₄ vor den Wasserwechseln, trage die Ergebnisse ein und stell den Plan höher oder niedriger.</span></li>
+        </ol>
+      </div>
+      <div class="recipe" aria-label="Von der App für dieses Beispiel berechnetes Rezept">
+        <h3>A · Makro, 500-ml-Flasche</h3>
+        <table><tr><td>KNO₃ (Kaliumnitrat)</td><td>4,53 g</td></tr><tr><td>KH₂PO₄ (Kaliumdihydrogenphosphat)</td><td>0,40 g</td></tr><tr><td>K₂SO₄ (Kaliumsulfat)</td><td>2,03 g</td></tr><tr><td>MgSO₄·7H₂O (Bittersalz)</td><td>11,3 g</td></tr></table>
+        <h3>B · Mikro, 500-ml-Flasche</h3>
+        <table><tr><td>Spurenelementmischung CSM+B</td><td>0,79 g</td></tr></table>
+        <p>Pro Woche im Aquarium: NO₃ +5, PO₄ +0,5, K +5, Mg +2, Fe +0,1 mg/l. Werte aus der App für die Angaben links.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fuer-wen">
+  <div class="wrap">
+    <h2>Für Einsteiger und erfahrene Dünger-Mischer</h2>
+    <div class="who">
+      <article><h3>Wenn du neu bei Salzdüngern bist</h3><ul>
+        <li>Beginne mit „Dünger herstellen“: Beantworte ein paar Fragen und erhalte ein vollständiges Rezept.</li>
+        <li>Verständliche Erklärungen zu GH, KH, ppm, Chelaten und Makro vs. Mikro, dazu Hilfeseiten.</li>
+        <li>Klare Warnungen: Kupfer bei Garnelen, Ammonium, Salze, die sich nicht lösen, Säuren.</li>
+        <li>Unsicher bei deinen Pflanzen? Die Checklisten zu Pflanzenproblemen und Algen schlagen vor, was du zuerst testen solltest.</li></ul></article>
+      <article><h3>Wenn du EI und PPS-Pro schon kennst</h3><ul>
+        <li>Makro- und Mikro-Rechner, Salz für Salz, mit eigenen Zielen pro Dosis oder pro Woche.</li>
+        <li>Jede Hydratform (z. B. MgSO₄ vs. MgSO₄·7H₂O), Salzreinheit und Chelat-% vom Etikett.</li>
+        <li>Löslichkeitsprüfung, Effekt gleichioniger Zusätze und automatisches Aufteilen auf Flaschen.</li>
+        <li>Eigene Salze, Rezepte und Düngerbibliothek – als Datei exportierbar.</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="aquarien" class="alt">
+  <div class="wrap">
+    <h2>Aus den Aquarien des Autors</h2>
+    <p class="lead">Pflanzenaquarien, gedüngt mit Salzen nach den eigenen Rezepten des Autors.</p>
+    <div class="gal">
+      <figure style="flex:1"><img src="../img/zbiornik-gupiki.webp" loading="lazy" width="1100" height="1100" alt="Pflanzenaquarium mit Guppys: gefiederte grüne Pflanzen links, rote und rostfarbene Stängelpflanzen in der Mitte, grasartige Pflanzen rechts, ein dichter Bodendecker vorne"></figure>
+      <figure style="flex:2.4"><img src="../img/zbiornik-front.webp" loading="lazy" width="1600" height="667" alt="Pflanzenaquarium von vorne: dichte Stängelpflanzen in Grün- und Rosttönen, niedrige Pflanzen im Vordergrund"></figure>
+      <figure style="flex:.75"><img src="../img/zbiornik-z-gory.webp" loading="lazy" width="840" height="1120" alt="Aquarium von oben entlang des Lichts: eine blühende Bucephalandra sowie gelbe und orange Rosetten von Stängelpflanzen"></figure>
+    </div>
+    <p class="kofiband">DoseMyTank ist kostenlos. Wenn es dir geholfen hat, <a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v2M12 3v2"/></svg>spendiere mir einen Kaffee auf Ko-fi</a></p>
+  </div>
+</section>
+
+<section id="installation">
+  <div class="wrap">
+    <h2>Installation und deine Daten</h2>
+    <div class="two">
+      <div>
+        <p style="color:var(--mut);margin-bottom:20px">DoseMyTank ist eine Web-App. Du kannst sie direkt aus dem Browser auf Handy oder Computer installieren – ohne App Store.</p>
+        <div class="os"><h3>iPhone und iPad (Safari)</h3><ol><li>Öffne diese Seite in Safari (nicht in der Facebook-App).</li><li>Tippe auf <b>Teilen</b> (das Quadrat mit dem Pfeil).</li><li>Wähle <b>Zum Home-Bildschirm</b>.</li></ol></div>
+        <div class="os"><h3>Android (Chrome)</h3><ol><li>Öffne diese Seite in Chrome.</li><li>Tippe oben rechts auf das Menü <b>⋮</b>.</li><li>Wähle <b>App installieren</b> oder „Zum Startbildschirm hinzufügen“.</li></ol></div>
+        <div class="os"><h3>Computer (Chrome, Edge)</h3><ol><li>Öffne die App.</li><li>Klicke auf das Installationssymbol am rechten Ende der Adressleiste.</li></ol></div>
+      </div>
+      <div>
+        <ul class="facts">
+          <li>Kein Konto, keine Anmeldung. Deine Aquariendaten verlassen nie dein Gerät.</li>
+          <li>Deine Daten werden in deinem Browser gespeichert. Nach dem ersten Besuch funktioniert die App offline und aktualisiert sich selbst, wenn du online bist.</li>
+          <li>In den Einstellungen speicherst du eine Sicherung als Datei und lädst sie auf einem anderen Gerät.</li>
+        </ul>
+        <div class="note"><b>Deine Daten gehören zu diesem Browser.</b> Öffne die App immer über dasselbe Symbol auf dem Startbildschirm und erstelle ab und zu eine Sicherung. Ein neues Handy oder das Löschen der Browserdaten entfernt sie.</div>
+        <div class="note"><b>Säuren und Chemikalien.</b> Wenn eine Berechnung Säure enthält, zeigt die App Sicherheitsregeln und eine mildere Option (z. B. 10-%-Essig). Gib Chemikalien verdünnt und einzeln zu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap faq">
+    <h2>Häufige Fragen</h2>
+    <details><summary>Ist DoseMyTank wirklich kostenlos?</summary><p>Ja. Es gibt keine Bezahlversion, keine Werbung und kein Konto. Die App ist ein Hobbyprojekt und läuft vollständig in deinem Browser. Wenn du die Weiterentwicklung unterstützen möchtest, kannst du mir <a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener">einen Kaffee auf Ko-fi spendieren</a>.</p></details>
+    <details><summary>Womit fange ich an?</summary><p>Öffne die App – der erste Bildschirm ist „Dünger herstellen“. Gib dein Beckenvolumen ein und wähle Licht und CO₂. Rezept und Einkaufsliste für einen Grundsatz an Salzen erscheinen sofort.</p></details>
+    <details><summary>Welche Düngemethoden werden unterstützt?</summary><p>EI (Estimative Index), PPS-Pro und PMDD als fertige Rezepte, dazu eigene Ziele in mg/l pro Woche oder pro Dosis. Du kannst aus Flaschen dosieren oder trocken direkt ins Aquarium düngen. Fertigdünger lassen sich mit eigenen Salzen kombinieren.</p></details>
+    <details><summary>Mein Bittersalz ist MgSO₄·7H₂O, aber im Rezept steht MgSO₄. Was nun?</summary><p>Jede Form eines Salzes ist eine eigene Auswahl, z. B. MgSO₄·7H₂O (Heptahydrat, Bittersalz) und wasserfreies MgSO₄. Wähle die auf deiner Packung. Die Magnesiummenge bleibt gleich – es ändern sich nur die Gramm, die du abwiegst.</p></details>
+    <details><summary>Rechnet die App in Litern?</summary><p>Ja. Die App rechnet in Litern und Millilitern, wie die meisten Düngerrezepte. Gib das Nettovolumen ein – das Wasser ohne Bodengrund und Deko, meist etwa 80–90 % des Beckeninhalts. Aus den Außenmaßen berechnet es das Werkzeug „Beckenvolumen“.</p></details>
+    <details><summary>ppm oder mg/l?</summary><p>Im Süßwasser ist das dasselbe: 1 mg/l = 1 ppm. Die App zeigt mg/l; Düngerkonzentrate werden in g/l angezeigt.</p></details>
+    <details><summary>Was ist der Unterschied zwischen Aufhärten und Werte korrigieren?</summary><p>„Osmosewasser aufhärten“ berechnet, wie viel Salz du einem ganzen Ansatz Osmosewasser vor dem Wasserwechsel zugibst, damit es die Ziel-GH und -KH erreicht. „Aquariumwerte korrigieren“ berechnet, wie viel eines Nährstoffs du dem Wasser im Aquarium zugibst, um einen Testwert auf dein Ziel zu bringen.</p></details>
+    <details><summary>Wie genau sind die Ergebnisse?</summary><p>Die Berechnung ist für die eingegebenen Daten exakt: Molare Massen stammen aus den chemischen Formeln (IUPAC-Atomgewichte 2021), und die Rechnung ist durch automatische Tests abgesichert. Was im Aquarium ankommt, hängt außerdem von der Reinheit der Salze, deiner Waage, der Zusammensetzung laut Etikett und der Genauigkeit der Tropfentests ab. Die Löslichkeit von Salzmischungen wird mit Sicherheitsabstand geschätzt. Manche Fertigdünger veröffentlichen keine vollständige Zusammensetzung – diese sind als ungefähr markiert. Die App sagt nicht voraus, wie viel die Pflanzen aufnehmen – das zeigt nur ein Wassertest.</p></details>
+    <details><summary>Sagt mir die App, ob meine Pflanzen gut wachsen werden?</summary><p>Nein. Sie berechnet, was du ins Wasser gibst. Das Pflanzenwachstum hängt auch von Licht, CO₂, Bodengrund und Art ab. Die empfohlenen Dosen sind ein Ausgangspunkt, den du nach Tests und Beobachtung deiner Pflanzen anpasst.</p></details>
+    <details><summary>Wie übertrage ich meine Daten auf ein neues Handy?</summary><p>Speichere in den Einstellungen eine Sicherung als Datei und lade sie auf dem neuen Handy an derselben Stelle. Ohne Sicherung bleiben die Daten im alten Browser.</p></details>
+    <details><summary>Ich habe einen Fehler gefunden oder eine Idee.</summary><p>Melde es bitte über die <a href="kontakt.html">Kontaktseite</a>. Bei Fehlern gib dein Handymodell, den Browser und an, was genau passiert ist – ein Screenshot hilft.</p></details>
+    <details><summary>Die Übersetzung klingt seltsam.</summary><p>Die deutsche Version ist neu. Wenn dir ein Satz holprig vorkommt oder ein Fachbegriff anders üblich ist, schreib uns bitte über die <a href="kontakt.html">Kontaktseite</a> – mit der Ansicht und deinem Vorschlag.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Über die App und Kontakt</h2>
+    <div class="cards2">
+      <a href="ueber.html"><b>Über DoseMyTank →</b><span>Was es ist, wie die Berechnungen funktionieren und was mit deinen Daten passiert.</span></a>
+      <a href="kontakt.html"><b>Fehler melden oder Funktion vorschlagen →</b><span>Sag uns, was nicht funktioniert oder was fehlt. Rückmeldungen von Einsteigern und EI-Profis sind gleichermaßen willkommen.</span></a>
+      <a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener"><b>DoseMyTank auf Ko-fi unterstützen →</b><span>Die App ist kostenlos, ohne Werbung und ohne Konto. Ein Kaffee hilft bei neuen Versionen.</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>DoseMyTank · Version 8.5.0. Die Ergebnisse sind Hilfsberechnungen und ersetzen keine Wassertests. Der Autor haftet nicht für die Folgen der Dosierung von Düngern und Chemikalien in deinem Aquarium.</p>
+    <nav aria-label="Fußzeile"><a href="../app.html?lang=de">App öffnen</a><a href="ueber.html">Über</a><a href="kontakt.html">Kontakt</a><a href="https://ko-fi.com/dosemytank" target="_blank" rel="noopener">Ko-fi</a><a href="../" hreflang="en" lang="en" data-setlang="en">English</a><a href="../pl/" hreflang="pl" lang="pl" data-setlang="pl">Polski</a></nav>
+  </div>
+</footer>
+<script src="../site.js"></script>
+</body>
+</html>

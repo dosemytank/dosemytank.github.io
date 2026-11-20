@@ -112,7 +112,7 @@ def run(b, name, vp, mobile):
     ctx.close()
 
 with sync_playwright() as p:
-    b = p.chromium.launch()
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None)
     run(b, 'tel', {'width': 390, 'height': 844}, True)
     run(b, 'pc', {'width': 1280, 'height': 900}, False)
     b.close()

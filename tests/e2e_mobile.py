@@ -31,7 +31,7 @@ V3 = {'v': 3, 'active': 't1', 'theme': 'auto', 'adv': False, 'inputs': {}, 'seg'
 
 errors = []
 with sync_playwright() as p:
-    b = p.chromium.launch()
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None)
     ctx = b.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=2, is_mobile=True, has_touch=True, accept_downloads=True, locale='pl-PL')
     pg = ctx.new_page()
     pg.on('pageerror', lambda e: errors.append('pageerror: ' + str(e)))

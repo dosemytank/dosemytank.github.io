@@ -1,8 +1,8 @@
 {
   "name": "dosemytank",
-  "version": "8.4.1",
+  "version": "8.5.0",
   "private": true,
-  "description": "DoseMyTank – aquarium fertilizer calculator and planted tank log (PWA, offline, EN/PL)",
+  "description": "DoseMyTank – aquarium fertilizer calculator and planted tank log (PWA, offline, EN/PL/DE)",
   "scripts": {
     "test": "node --test tests/*.test.js",
     "test:e2e": "python3 tests/e2e_all.py"

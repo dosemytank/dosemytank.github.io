@@ -8,7 +8,7 @@ class Q(http.server.SimpleHTTPRequestHandler):
 srv = http.server.ThreadingHTTPServer(('127.0.0.1', 8766), functools.partial(Q, directory=ROOT)); threading.Thread(target=srv.serve_forever, daemon=True).start()
 errors = []
 with sync_playwright() as p:
-    b = p.chromium.launch(); ctx = b.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=2, is_mobile=True, has_touch=True, locale='pl-PL'); pg = ctx.new_page()
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None); ctx = b.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=2, is_mobile=True, has_touch=True, locale='pl-PL'); pg = ctx.new_page()
     pg.on('pageerror', lambda e: errors.append(str(e))); pg.on('console', lambda m: m.type == 'error' and errors.append(m.text))
     pg.goto('http://127.0.0.1:8766/app.html'); pg.evaluate("localStorage.clear()"); pg.reload(); pg.wait_for_timeout(500)
     shot = lambda n: SHOTS and pg.screenshot(path=os.path.join(SHOTS, n + '.png'), full_page=True)

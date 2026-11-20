@@ -11,7 +11,7 @@ srv = http.server.ThreadingHTTPServer(('127.0.0.1', 8767), functools.partial(Q, 
 URL = 'http://127.0.0.1:8767/app.html'
 errors = []
 with sync_playwright() as p:
-    b = p.chromium.launch()
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None)
     ctx = b.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=2, is_mobile=True, has_touch=True, locale='pl-PL', permissions=['clipboard-read', 'clipboard-write'])
     pg = ctx.new_page(); pg.on('pageerror', lambda e: errors.append(str(e))); pg.on('console', lambda m: m.type == 'error' and errors.append(m.text))
     shot = lambda n: SHOTS and pg.screenshot(path=os.path.join(SHOTS, n + '.png'), full_page=True)

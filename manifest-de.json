@@ -1,0 +1,90 @@
+{
+  "id": "./app.html",
+  "name": "DoseMyTank – Dünger-Rechner fürs Aquarium",
+  "short_name": "DoseMyTank",
+  "description": "Rechner für Aquariendünger aus Salzen (EI, PPS-Pro, PMDD), Dosierung fertiger Dünger, Aufhärten von Osmosewasser und Logbuch fürs Pflanzenaquarium. Funktioniert offline.",
+  "start_url": "./app.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e3b2c",
+  "theme_color": "#0e3b2c",
+  "lang": "de",
+  "dir": "ltr",
+  "categories": [
+    "utilities",
+    "lifestyle",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dünger herstellen",
+      "short_name": "Dünger",
+      "url": "./app.html#/calculator/fertilizer",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Osmosewasser aufhärten",
+      "short_name": "Osmosewasser",
+      "url": "./app.html#/calculator/remineralization",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Aquarium-Logbuch",
+      "short_name": "Logbuch",
+      "url": "./app.html#/log",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "img/de/kalkulator.webp",
+      "sizes": "708x1830",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Düngerrezept für zwei Flaschen"
+    },
+    {
+      "src": "img/de/wykresy.webp",
+      "sizes": "780x1688",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Logbuch mit Nitrat-Diagramm"
+    }
+  ]
+}

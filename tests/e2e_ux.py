@@ -5,7 +5,7 @@ import pl_lang  # noqa: F401 – testy polskiej wersji (od 8.0 domyślny jest EN
 URL = 'file://' + os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app.html'))
 ROUTES = ['kalkulator', 'zbiornik', 'zbiornik/profil', 'zbiornik/plan', 'dziennik', 'narzedzia', 'woda/kumulacja', 'woda/co2', 'nawozy/odpowiednik', 'woda/podmianapro', 'pomoc/rosliny', 'pomoc/glony', 'nawozy/moje', 'info', 'slownik']
 with sync_playwright() as p:
-    b = p.chromium.launch()
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None)
     for w, theme in [(360, 'light'), (360, 'dark'), (1280, 'light')]:
         pg = b.new_page(viewport={'width': w, 'height': 800}); errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
         pg.goto(URL); pg.wait_for_timeout(300)

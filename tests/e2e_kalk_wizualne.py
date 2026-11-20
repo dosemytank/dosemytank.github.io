@@ -8,7 +8,7 @@ SIZES = [(360, 740), (390, 844), (768, 1024), (1366, 900), (1920, 1080)]
 ROUTES = ['nawoz', 'mineral', 'zaawansowane', 'makro', 'mikro', 'gotowe', 'receptury', 'receptury/pmdd', 'receptury/sprawdz', 'historia']
 errors = []
 with sync_playwright() as p:
-    b = p.chromium.launch()
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None)
     for w, hh in SIZES:
         pg = b.new_page(viewport={'width': w, 'height': hh}); pg.on('pageerror', lambda e: errors.append(str(e)))
         pg.goto(URL + '#/kalkulator'); pg.wait_for_timeout(300)

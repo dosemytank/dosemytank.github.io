@@ -21,7 +21,7 @@ EXTRA = ['kalkulator/nawoz', 'kalkulator/gotowe', 'kalkulator/receptury', 'kalku
 SHEETS = ['openAdd()', 'openTankSheet()', 'openHelp()']
 out = {}
 with sync_playwright() as p:
-    b = p.chromium.launch()
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None)
     for seed in ['empty', 'demo']:
         ctx = b.new_context(viewport={'width': 390, 'height': 844}, locale='pl-PL' if LANG == 'pl' else 'en-US', service_workers='block', timezone_id='Europe/Warsaw')
         ctx.add_init_script("try{localStorage.setItem('dmt.lang','%s')}catch(e){}" % LANG)

@@ -30,7 +30,7 @@ SEED = """() => { const d = new Date(); for (let i = 0; i < 4; i++) { const x = 
   tank().fplan = [{ pid: 'b20', amt: '5', n: '3' }]; tank().setup = true; state.adv = true; state.inputs.setupHide = true; save(); }"""
 fail = []
 with sync_playwright() as p:
-    b = p.chromium.launch()
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None)
     for scheme in ['light', 'dark']:
         for w in [360, 1280]:
             ctx = b.new_context(viewport={'width': w, 'height': 900}, color_scheme=scheme, service_workers='block'); pg = ctx.new_page()

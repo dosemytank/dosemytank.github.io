@@ -12,7 +12,7 @@ srv = http.server.ThreadingHTTPServer(('127.0.0.1', 8781), functools.partial(Q, 
 BASE = 'http://127.0.0.1:8781/'
 fail = []
 with sync_playwright() as p:
-    b = p.chromium.launch(); ctx = b.new_context(locale='en-US'); pg = ctx.new_page(); errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None); ctx = b.new_context(locale='en-US'); pg = ctx.new_page(); errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
     pg.goto(BASE + 'app.html'); pg.evaluate('navigator.serviceWorker.ready'); pg.reload(); pg.wait_for_timeout(800)
     if not pg.evaluate('!!navigator.serviceWorker.controller'): fail.append('service worker nie przejął strony')
     pg.evaluate("addEvent({ type: 'note', date: todayKey(), note: 'offline-test' }); save()")

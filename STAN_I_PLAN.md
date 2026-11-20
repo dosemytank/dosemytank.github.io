@@ -5,7 +5,8 @@ Stan wg repozytorium: wersja 6.9, ok. 4,7 tys. linii JS, 65 testów jednostkowyc
 
 ## 8.0 – wersja międzynarodowa (20.11.2026)
 
-Angielski jest językiem domyślnym, polski w pełni obsługiwany. Obliczenia, dane i zapis bez zmian (test: tekst 80 ekranów PL identyczny z 7.17).
+Angielski jest językiem domyślnym, polski w pełni obsługiwany.
+- [x] 8.5: niemiecki – `i18n-de.js` (2 197 tekstów, forma „du”, przecinek dziesiętny, mg/l), strony `de/` (index, ueber, kontakt), `manifest-de.json`, zrzuty `img/de/` i `img/og-de.png`, hreflang EN/PL/DE, przełącznik języka w nagłówku stron (jedna pigułka z dwoma kodami). Słownik DE wczytywany tylko przy interfejsie DE; brak tłumaczenia → angielski. Testy: `npm test` (komplet, placeholdery, zapis liczb, zmiana PL↔DE↔EN), `e2e_i18n.py` (38 ekranów po niemiecku), `e2e_strona.py` (9 stron). Obliczenia, dane i zapis bez zmian (test: tekst 80 ekranów PL identyczny z 7.17).
 - [x] System języków: `i18n.js` + `i18n-en.js` (2 180 tekstów). Każdy tekst w `tl('tekst po polsku', …)`; klucz = polski tekst. Wybór: `?lang=` → zapisany (`dmt.lang`) → dotychczasowi użytkownicy (dane `akwa.v*`) = PL → język przeglądarki → EN. Zmiana w Ustawieniach, offline, z przeniesieniem domyślnych nazw (zbiornik, zadania, tagi).
 - [x] Liczby i daty wg języka (`DEC`, `fmtNum`, `fmtDate*`); pola przyjmują przecinek i kropkę. EN: mg/L, L. Galony US – przelicznik przy objętości zbiornika (obliczenia zawsze w litrach).
 - [x] Strony: `index.html` (EN), `pl/index.html`, `about.html`, `feedback.html`, `pl/o-aplikacji.html`, `pl/kontakt.html`, `404.html`; `site.css`, `site.js`. Zrzuty EN w `img/en/`, podglądy linków `img/og.png` (EN), `img/og-pl.png`.

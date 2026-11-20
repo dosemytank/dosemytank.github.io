@@ -2,7 +2,7 @@
 
 **Your aquarium. Your formula.** Free aquarium tools for planted tank enthusiasts – <https://dosemytank.github.io/>
 
-DoseMyTank is a web app (installable PWA) that works offline and keeps all data in the browser. No account, no ads, no tracking. English is the default language, with full Polish support.
+DoseMyTank is a web app (installable PWA) that works offline and keeps all data in the browser. No account, no ads, no tracking. English is the default language, with full Polish and German support.
 
 - **DIY fertilizers from dry salts** – EI (Estimative Index), PPS-Pro, PMDD or your own targets: grams per bottle, ml per dose, expected weekly mg/L (ppm), precipitation and solubility warnings, shopping list.
 - **RO water remineralization** – salts for a target GH, KH and Ca : Mg ratio.
@@ -15,9 +15,10 @@ DoseMyTank is a web app (installable PWA) that works offline and keeps all data 
 | File | Purpose |
 |---|---|
 | `index.html`, `about.html`, `feedback.html` | English website (static, indexable) |
+| `de/index.html`, `de/ueber.html`, `de/kontakt.html` | German website |
 | `pl/` | Polish website (`index.html`, `o-aplikacji.html`, `kontakt.html`) |
 | `app.html` | The app (single page, hash routes such as `#/calculator/remineralization`) |
-| `i18n.js`, `i18n-en.js` | Language system and English dictionary |
+| `i18n.js`, `i18n-en.js`, `i18n-de.js` | Language system, English and German dictionaries (`i18n-de.js` is loaded only with the German UI; a missing German string falls back to English) |
 | `chem.js`, `calc.js`, `nawozy-*.js`, `logic.js`, `clone.js` | Calculation engine (pure functions, tested in Node) |
 | `kalk-*.js`, `app.js`, `tools.js`, `woda.js`, … | Screens |
 | `sw.js`, `manifest.json`, `manifest-pl.json` | PWA: offline cache, install |
@@ -32,9 +33,9 @@ toast(tl('Zapisano pomiar'));                       // → "Test saved"
 tl('{0} ml podnosi {1} o {2} mg/l w {3} l.', ml, ion, ppm, V)
 ```
 
-To add a string: write it in Polish inside `tl()` and add the English translation to `i18n-en.js`. `npm test` fails when a translation is missing or its `{0}` placeholders / HTML tags don't match.
+To add a string: write it in Polish inside `tl()` and add the English translation to `i18n-en.js` and the German one to `i18n-de.js` (decimal comma, `mg/l`, informal “du”). `npm test` fails when a translation is missing or its `{0}` placeholders / HTML tags don't match.
 
-Language selection: `?lang=en|pl` → saved choice (`localStorage['dmt.lang']`) → existing pre-8.0 data (Polish) → browser language → English. Switching language in Settings reloads from the offline cache; default names (tank, tasks, note tags) are converted to the new language, user-entered text is never changed. Numbers and dates follow the language (decimal comma in Polish, point in English); input fields accept both.
+Language selection: `?lang=en|pl|de` → saved choice (`localStorage['dmt.lang']`) → existing pre-8.0 data (Polish) → browser language → English. Switching language in Settings reloads from the offline cache; default names (tank, tasks, note tags) are converted to the new language, user-entered text is never changed. Numbers and dates follow the language (decimal comma in Polish and German, point in English); input fields accept both.
 
 ## Calculations
 

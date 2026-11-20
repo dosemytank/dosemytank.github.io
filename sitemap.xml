@@ -5,6 +5,7 @@
     <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://dosemytank.github.io/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/"/>
   </url>
   <url>
@@ -12,6 +13,15 @@
     <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://dosemytank.github.io/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/"/>
+  </url>
+  <url>
+    <loc>https://dosemytank.github.io/de/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dosemytank.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/"/>
   </url>
   <url>
@@ -19,6 +29,7 @@
     <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://dosemytank.github.io/about.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/o-aplikacji.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/ueber.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/about.html"/>
   </url>
   <url>
@@ -26,6 +37,15 @@
     <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://dosemytank.github.io/about.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/o-aplikacji.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/ueber.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/about.html"/>
+  </url>
+  <url>
+    <loc>https://dosemytank.github.io/de/ueber.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dosemytank.github.io/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/o-aplikacji.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/ueber.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/about.html"/>
   </url>
   <url>
@@ -33,6 +53,7 @@
     <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://dosemytank.github.io/feedback.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/kontakt.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/feedback.html"/>
   </url>
   <url>
@@ -40,6 +61,15 @@
     <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://dosemytank.github.io/feedback.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/feedback.html"/>
+  </url>
+  <url>
+    <loc>https://dosemytank.github.io/de/kontakt.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dosemytank.github.io/feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/kontakt.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/feedback.html"/>
   </url>
   <url>

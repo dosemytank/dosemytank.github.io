@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="auto" data-sw="../sw.js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Über DoseMyTank – so funktioniert der Dünger-Rechner fürs Aquarium</title>
+<meta name="description" content="Über DoseMyTank: ein kostenloser, unabhängiger Dünger-Rechner fürs Pflanzenaquarium. Wie die Berechnungen funktionieren, woher die Produktdaten stammen und was mit deinen Daten passiert.">
+<link rel="canonical" href="https://dosemytank.github.io/de/ueber.html">
+<link rel="alternate" hreflang="en" href="https://dosemytank.github.io/about.html">
+<link rel="alternate" hreflang="pl" href="https://dosemytank.github.io/pl/o-aplikacji.html">
+<link rel="alternate" hreflang="de" href="https://dosemytank.github.io/de/ueber.html">
+<link rel="alternate" hreflang="x-default" href="https://dosemytank.github.io/about.html">
+<meta name="theme-color" content="#0e3b2c">
+<link rel="icon" href="../icon-192.png">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="DoseMyTank">
+<meta property="og:title" content="Über DoseMyTank">
+<meta property="og:description" content="Ein kostenloser, unabhängiger Dünger-Rechner fürs Pflanzenaquarium. Wie er rechnet und was mit deinen Daten passiert.">
+<meta property="og:url" content="https://dosemytank.github.io/de/ueber.html">
+<meta property="og:image" content="https://dosemytank.github.io/img/og-de.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../site.css">
+<!-- Cloudflare Web Analytics: anonimowy licznik odwiedzin stron informacyjnych (bez ciasteczek); aplikacja (app.html) go nie ma -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f621a37381be44728b366bba49923208"}'></script>
+</head>
+<body>
+<header class="hero" style="border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./"><span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 9-5 15-13 15"/><path d="M5 19c3-5 6-8 10-10"/></svg></span>DoseMyTank</a>
+      <nav aria-label="Website"><a href="./#funktionen">Funktionen</a><a href="./#faq">FAQ</a><a href="kontakt.html">Kontakt</a></nav>
+      <span class="langs"><a class="lang" href="../about.html" hreflang="en" lang="en" data-setlang="en">EN</a><a class="lang" href="../pl/o-aplikacji.html" hreflang="pl" lang="pl" data-setlang="pl">PL</a></span>
+      <a class="btn sm" href="../app.html?lang=de">App öffnen</a>
+    </div>
+  </div>
+</header>
+<main class="page">
+  <article class="wrap prose">
+    <h1>Über DoseMyTank</h1>
+    <p>DoseMyTank ist eine kostenlose Web-App für Pflanzenaquarianer, die ihre Dünger selbst mischen oder genau wissen möchten, was ein Fertigdünger in ihr Aquarium bringt. Sie entstand als polnischsprachiges Werkzeug für lokale Aquascaping-Gruppen. Seit Version 8 ist sie vollständig auf Englisch verfügbar, seit Version 8.5 auch auf Deutsch.</p>
+    <p>Es ist ein unabhängiges, nicht kommerzielles Projekt: keine Werbung, keine Bezahlversion, kein Konto und kein Tracking. Es ist mit keinem Düngerhersteller und keinem Shop verbunden.</p>
+
+    <h2>Wie die Berechnungen funktionieren</h2>
+    <ul>
+      <li><b>Molare Massen</b> werden aus den chemischen Formeln mit den IUPAC-Standardatomgewichten 2021 berechnet – nie von Hand eingetippt. Jedes Hydrat ist eine eigene Form, daher liefern MgSO₄·7H₂O und wasserfreies MgSO₄ dieselbe Menge Magnesium aus unterschiedlichen Gramm.</li>
+      <li><b>Konzentrationen</b> sind in mg/l angegeben. Im Süßwasser gilt 1 mg/l = 1 ppm. Die Härte wird in deutschen Graden angegeben: 1 °dH = 10 mg/l CaO (7,15 mg/l Ca oder 4,34 mg/l Mg).</li>
+      <li><b>Löslichkeit</b> wird mit Werten für 20 °C geprüft, mit Sicherheitsabstand, wenn mehrere Salze ein Ion teilen (Effekt gleichioniger Zusätze).</li>
+      <li><b>Unverträgliche Salze</b> werden auf getrennte Flaschen aufgeteilt: Calcium mit Phosphat oder Sulfat, Eisen und andere Metalle mit Phosphat, Ammonium + Magnesium + Phosphat (Struvit), Metalle mit Carbonaten.</li>
+      <li><b>CO₂</b> wird aus pH und KH geschätzt (CO₂ = 3 · KH · 10<sup>(7 − pH)</sup>) und als Band angezeigt, das die Genauigkeit von Tropfentests widerspiegelt. <b>Freies Ammoniak</b> nach Emerson et al. (1975).</li>
+      <li><b>Fertigdünger</b> verwenden die vom Hersteller veröffentlichte oder auf dem Etikett gedruckte Zusammensetzung, mit Quellenangabe. Produkte ohne vollständig veröffentlichte Zusammensetzung sind als ungefähr markiert.</li>
+      <li>Die Rechenlogik ist durch automatische Tests abgesichert, einschließlich Vergleichen mit von Hand berechneten Referenzwerten und den veröffentlichten PPS-Pro- und EI-Zahlen.</li>
+    </ul>
+    <p class="muted">Was die App nicht tut: Sie sagt nicht voraus, wie viel deine Pflanzen aufnehmen, und ersetzt keine Wassertests. Betrachte die empfohlenen Dosen als Ausgangspunkt und passe sie nach Tests an.</p>
+
+    <h2>Deine Daten</h2>
+    <ul>
+      <li>Alles, was du eingibst – Aquarien, Tests, Rezepte –, wird nur in deinem Browser auf deinem Gerät gespeichert.</li>
+      <li>Die App sendet deine Daten nirgendwohin und verwendet keine Cookies. Die Seite wird auf GitHub Pages gehostet.</li>
+      <li>Die Informationsseiten (nicht die App selbst) nutzen Cloudflare Web Analytics – einen anonymen Besucherzähler ohne Cookies, der keine einzelnen Besucher verfolgt. Er zeigt nur, wie viele Menschen die Seite besuchen und woher (z. B. Land, verweisende Seite).</li>
+      <li>In den Einstellungen kannst du eine Sicherungsdatei speichern und auf einem anderen Gerät laden. Das Löschen der Browserdaten entfernt, was in der App gespeichert ist.</li>
+    </ul>
+
+    <h2>Sprachen und Einheiten</h2>
+    <p>Die App richtet sich beim ersten Start nach der Sprache deines Browsers (Deutsch, Englisch oder Polnisch) und merkt sich deine Wahl; du kannst jederzeit in den Einstellungen wechseln, auch offline. Zahlen werden mit Dezimalkomma angezeigt. Gerechnet wird in Litern, Millilitern und Gramm, die Härte in °dH.</p>
+
+    <h2>Kontakt</h2>
+    <p>Einen Fehler in einer Berechnung gefunden, eine holprige Übersetzung oder fehlt ein Dünger? <a href="kontakt.html">Schreib uns</a> oder sende eine E-Mail an <a href="mailto:dosemytank@gmail.com">dosemytank@gmail.com</a>.</p>
+  </article>
+</main>
+<footer>
+  <div class="wrap foot">
+    <p>DoseMyTank · Version 8.5.0. Die Ergebnisse sind Hilfsberechnungen und ersetzen keine Wassertests.</p>
+    <nav aria-label="Fußzeile"><a href="./">Startseite</a><a href="../app.html?lang=de">App öffnen</a><a href="kontakt.html">Kontakt</a><a href="../about.html" hreflang="en" lang="en" data-setlang="en">English</a><a href="../pl/o-aplikacji.html" hreflang="pl" lang="pl" data-setlang="pl">Polski</a></nav>
+  </div>
+</footer>
+<script src="../site.js"></script>
+</body>
+</html>

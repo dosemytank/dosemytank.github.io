@@ -3,7 +3,8 @@
 2) zmiana języka w Ustawieniach i zapamiętanie wyboru, domyślne nazwy przechodzą na nowy język, dane zostają,
 3) przejście po wszystkich ekranach w EN z klikaniem przełączników i rozwijanych sekcji: bez błędów JS,
    bez brakujących tłumaczeń (I18N_MISSING) i bez polskiego tekstu w widoku,
-4) to samo w PL: brak angielskich wstawek z i18n (sprawdzane przez porównanie z zapisem sprzed 8.0 w i18n_snapshot).
+4) to samo w PL: brak angielskich wstawek z i18n (sprawdzane przez porównanie z zapisem sprzed 8.0 w i18n_snapshot),
+5) 8.5: DE – wykrywanie, zmiana języka, przejście po wszystkich ekranach jak w EN (bez braków w I18N_MISSING i bez polskiego tekstu).
 Uruchom: python3 tests/e2e_i18n.py [katalog_na_zrzuty]"""
 import os, sys, re, json
 from playwright.sync_api import sync_playwright
@@ -18,24 +19,28 @@ for k, v in EN.items(): plw |= set(W(k)); enw |= set(W(v))
 PLWORDS = {w for w in plw - enw if len(w) >= 3} | {'nie', 'tak', 'raz', 'albo', 'lub', 'dla', 'przy', 'mam'}
 PLWORDS -= {'symfonia', 'złota', 'neocaridina', 'caridina', 'mikro', 'makro', 'intermag', 'floramix', 'mikroplant', 'elvita', 'mikromag', 'rexolin', 'fetrilon', 'combi', 'compo', 'nutrafin', 'spezial', 'rebell', 'plantex'}
 DIAC = re.compile('[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]')
-ALLOW_LINES = {'Language · Język', 'Polski', 'Symfonia złota'}
+ALLOW_LINES = {'Language · Język', 'Language · Sprache · Język', 'Polski', 'Symfonia złota'}
+# 8.5: w DE – bez słów, które występują też w niemieckich tłumaczeniach (Gips, Brutto, Profil, Chelat…)
+src_de = open(os.path.join(ROOT, 'i18n-de.js'), encoding='utf8').read(); DE = json.loads(src_de[src_de.index('{', src_de.index('I18N_DE')):src_de.rindex('}') + 1])
+dew = set(); [dew.update(W(v)) for v in DE.values()]
+PLWORDS_BY = {'en': PLWORDS, 'de': PLWORDS - dew}
 SEED = open(os.path.join(ROOT, 'tests', 'i18n_snapshot.py'), encoding='utf8').read().split('SEED = """')[1].split('"""')[0]
 
-def polish(text):
+def polish(text, lang='en'):
     out = []
     for line in text.split('\n'):
         l = line.strip()
         if not l or l in ALLOW_LINES or l.startswith('Symfonia złota'): continue
-        ws = [w for w in W(l) if w in PLWORDS or DIAC.search(w)] + re.findall(r'(?<=[\w₀-₉)]) (i|w|z|o) (?=[\w(])', l)  # polskie spójniki i przyimki
+        ws = [w for w in W(l) if w in PLWORDS_BY[lang] or DIAC.search(w)] + re.findall(r'(?<=[\w₀-₉)]) (i|w|z|o) (?=[\w(])', l)  # polskie spójniki i przyimki
         if ws: out.append((l[:120], ws[:4]))
     return out
 
 fail = []
 with sync_playwright() as p:
-    b = p.chromium.launch()
+    b = p.chromium.launch(executable_path=os.environ.get('CHROME') or None)
     # 1) wykrywanie języka
-    for loc, langs, pre, want in [('en-US', ['en-US', 'en'], None, 'en'), ('pl-PL', ['pl-PL', 'pl'], None, 'pl'), ('de-DE', ['de-DE', 'de'], None, 'en'),
-                                  ('de-DE', ['de-DE', 'pl'], None, 'pl'), ('en-GB', ['en-GB'], 'akwa.v4', 'pl')]:
+    for loc, langs, pre, want in [('en-US', ['en-US', 'en'], None, 'en'), ('pl-PL', ['pl-PL', 'pl'], None, 'pl'), ('de-DE', ['de-DE', 'de'], None, 'de'), ('de-AT', ['de-AT'], None, 'de'),
+                                  ('fr-FR', ['fr-FR', 'pl'], None, 'pl'), ('de-DE', ['de-DE'], 'akwa.v4', 'pl'), ('en-GB', ['en-GB'], 'akwa.v4', 'pl')]:
         ctx = b.new_context(locale=loc, service_workers='block'); pg = ctx.new_page()
         if pre: pg.goto(URL); pg.evaluate("localStorage.clear(); localStorage.setItem('akwa.v4', JSON.stringify({v:4,tanks:[{id:'t1',name:'Moje akwarium',V:60}],active:'t1',events:{t1:[]},tasks:{t1:[]}}))")
         pg.add_init_script(f"Object.defineProperty(navigator, 'languages', {{ get: () => {json.dumps(langs)} }})")
@@ -67,12 +72,23 @@ with sync_playwright() as p:
     pg.click('main >> text=Polski'); pg.wait_for_load_state(); pg.wait_for_timeout(400)
     if pg.evaluate('LANG') != 'pl' or pg.evaluate('state.tanks[0].name') != 'Moje akwarium': fail.append('powrót do PL nie działa')
     if pg.evaluate('JSON.stringify(state.events)') != before: fail.append('dane zmieniły się po dwóch zmianach języka')
+    # 8.5: PL → DE → EN → PL
+    pg.click('main >> text=Deutsch'); pg.wait_for_load_state(); pg.wait_for_timeout(400)
+    if pg.evaluate('LANG') != 'de': fail.append('przełączenie na DE nie działa')
+    if pg.evaluate('state.tanks[0].name') != 'Mein Aquarium': fail.append('domyślna nazwa zbiornika nie przeszła na DE: ' + pg.evaluate('state.tanks[0].name'))
+    if pg.evaluate("state.tasks[state.active].map(k => k.name).join('|')") != 'Makrodünger (NPK)|Mikro- / Eisendünger|Wasserwechsel': fail.append('zadania nie przeszły na DE')
+    if pg.evaluate("Object.values(state.events)[0][0].tags[0]") != 'Algen': fail.append('tag nie przeszedł na DE')
+    if 'Einstellungen' not in pg.inner_text('#main'): fail.append('ekran Ustawień nie po niemiecku')
+    pg.click('main >> text=English'); pg.wait_for_load_state(); pg.wait_for_timeout(400)
+    if pg.evaluate('state.tanks[0].name') != 'My tank': fail.append('DE → EN: nazwa zbiornika ' + pg.evaluate('state.tanks[0].name'))
+    pg.click('main >> text=Polski'); pg.wait_for_load_state(); pg.wait_for_timeout(400)
+    if pg.evaluate('state.tanks[0].name') != 'Moje akwarium' or pg.evaluate('JSON.stringify(state.events)') != before: fail.append('PL → DE → EN → PL zmienia dane')
     if errs: fail.append('błędy JS przy zmianie języka: ' + '; '.join(errs))
     ctx.close()
 
     # 3) przejście po ekranach EN z klikaniem
-    for lang in ['en']:
-        ctx = b.new_context(viewport={'width': 390, 'height': 844}, locale='en-US', service_workers='block'); pg = ctx.new_page()
+    for lang in ['en', 'de']:
+        ctx = b.new_context(viewport={'width': 390, 'height': 844}, locale={'en': 'en-US', 'de': 'de-DE'}[lang], service_workers='block'); pg = ctx.new_page()
         errs = []; pg.on('pageerror', lambda e: errs.append(str(e))); pg.on('dialog', lambda d: d.dismiss())
         pg.add_init_script("try{localStorage.setItem('dmt.lang','%s')}catch(e){}" % lang)
         pg.goto(URL); pg.wait_for_timeout(300)
@@ -85,15 +101,15 @@ with sync_playwright() as p:
         def scan(where):
             for sel in ['#main', '.sheet', '#nav', 'header.top', '.toast']:
                 for t in pg.eval_on_selector_all(sel, 'els => els.map(e => e.innerText)'):
-                    for l, ws in polish(t): found.setdefault(l, set()).add(where)
+                    for l, ws in polish(t, lang): found.setdefault(l, set()).add(where)
             # atrybuty widoczne dla czytników ekranu i podpowiedzi
             for t in pg.eval_on_selector_all('[aria-label],[title],[placeholder]', "els => els.map(e => [e.getAttribute('aria-label'), e.getAttribute('title'), e.getAttribute('placeholder')].filter(Boolean).join('\\n'))"):
-                for l, ws in polish(t): found.setdefault('[attr] ' + l, set()).add(where)
+                for l, ws in polish(t, lang): found.setdefault('[attr] ' + l, set()).add(where)
         for r in routes:
             pg.evaluate("r => { location.hash = '#/' + r; render(); }", r); pg.wait_for_timeout(150); scan(r)
             # kliknij przełączniki, zakładki i rozwijane sekcje (bez przycisków usuwania i zapisu)
             n = pg.evaluate("""() => { const els = [...document.querySelectorAll('#main [role=radio], #main .chip, #main summary, #main .kx-seg button, #main .kn-tabs button, #main [role=tab]')]
-              .filter(e => !['Polski', 'English'].includes(e.textContent.trim()));  // zmiana języka testowana osobno
+              .filter(e => !['Polski', 'English', 'Deutsch'].includes(e.textContent.trim()));  // zmiana języka testowana osobno
               els.forEach((e, i) => e.dataset.i18nClick = i); return els.length; }""")
             for i in range(min(n, 30)):
                 el = pg.query_selector(f'[data-i18n-click="{i}"]')
@@ -116,13 +132,18 @@ with sync_playwright() as p:
         # galony US → litry przy objętości akwarium (tylko EN); obliczenia dalej w litrach
         pg.set_viewport_size({'width': 390, 'height': 844})
         pg.evaluate("location.hash = '#/kalkulator/nawoz'; render()"); pg.wait_for_timeout(200)
-        pg.click('main >> text=Tank in gallons? Convert to liters'); pg.fill('.sheet input', '20'); pg.click('.sheet >> text=Use liters'); pg.wait_for_timeout(200)
-        v = pg.eval_on_selector('main input[aria-label="Water in the tank"]', 'e => e.value')
-        if v != '75.7': fail.append(f'galony → litry: pole ma {v!r}, oczekiwano 75.7')
-        if 'at 76 L' not in pg.inner_text('main'): fail.append('wynik nie przeliczony na 76 l')
-        # regresja 8.0: uwaga o occie zależała od polskiej nazwy kwasu (name.includes('octowy')) – teraz od identyfikatora
-        pg.evaluate("state.adv = true; save(); location.hash = '#/woda/kwas'; render()"); pg.wait_for_timeout(200)
-        if 'Vinegar is a weak acid' not in pg.inner_text('main'): fail.append('brak uwagi o occie w EN (kwas/KH)')
+        if lang == 'de':
+            if 'Gallonen' in pg.inner_text('main'): fail.append('[de] przelicznik galonów widoczny po niemiecku')
+            pg.evaluate("state.adv = true; save(); location.hash = '#/woda/kwas'; render()"); pg.wait_for_timeout(200)
+            if 'Essig ist eine schwache Säure' not in pg.inner_text('main'): fail.append('brak uwagi o occie w DE (kwas/KH)')
+        else:
+            pg.click('main >> text=Tank in gallons? Convert to liters'); pg.fill('.sheet input', '20'); pg.click('.sheet >> text=Use liters'); pg.wait_for_timeout(200)
+            v = pg.eval_on_selector('main input[aria-label="Water in the tank"]', 'e => e.value')
+            if v != '75.7': fail.append(f'galony → litry: pole ma {v!r}, oczekiwano 75.7')
+            if 'at 76 L' not in pg.inner_text('main'): fail.append('wynik nie przeliczony na 76 l')
+            # regresja 8.0: uwaga o occie zależała od polskiej nazwy kwasu (name.includes('octowy')) – teraz od identyfikatora
+            pg.evaluate("state.adv = true; save(); location.hash = '#/woda/kwas'; render()"); pg.wait_for_timeout(200)
+            if 'Vinegar is a weak acid' not in pg.inner_text('main'): fail.append('brak uwagi o occie w EN (kwas/KH)')
         miss = pg.evaluate('[...I18N_MISSING]')
         if miss: fail.append(f'[{lang}] brak tłumaczeń ({len(miss)}): ' + ' | '.join(miss[:15]))
         if errs: fail.append(f'[{lang}] błędy JS: ' + ' | '.join(errs[:5]))
@@ -140,4 +161,4 @@ ref, now = json.load(open(os.path.join(ROOT, 'tests', 'fixtures', 'ekrany-pl-7.1
 diff = [k for k in ref if not k.endswith(':info') and ref[k] != now.get(k)]
 if diff: fail.append('polska wersja różni się od 7.17 na ekranach: ' + ', '.join(diff))
 if fail: print('BŁĘDY:\n' + '\n'.join(fail)); sys.exit(1)
-print('OK – język: wykrywanie, zmiana, zapamiętanie, pełne tłumaczenie EN, polska wersja bez zmian')
+print('OK – język: wykrywanie, zmiana, zapamiętanie, pełne tłumaczenie EN i DE, polska wersja bez zmian')
