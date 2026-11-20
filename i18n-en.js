@@ -187,6 +187,8 @@ var I18N_EN = {
 "Objętość partii": "Batch volume",
 "Notatka": "Note",
 "np. woda RO": "e.g. RO water",
+"Tabela – przewiń w bok": "Table – scroll sideways",
+"Zgodność": "Match",
 "Składnik": "Nutrient",
 "Odważ": "Weigh out",
 "Rozpuść w {0} ml, uzupełnij do {1} ml.": "Dissolve in {0} ml, top up to {1} ml.",

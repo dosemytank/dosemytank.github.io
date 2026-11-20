@@ -1,6 +1,6 @@
-# DoseMyTank (dawniej Akwarysta) – stan aplikacji i plan dalszych prac (20.11.2026, wersja 8.5.1)
+# DoseMyTank (dawniej Akwarysta) – stan aplikacji i plan dalszych prac (20.11.2026, wersja 8.5.2)
 
-Stan wg repozytorium: wersja 8.5.1, interfejs EN/PL/DE, 160 testów jednostkowych i 9 przeglądarkowych (GitHub Actions przy każdym pushu). Szczegóły i uzasadnienia decyzji: `AUDYT.md`. Starsze wpisy niżej zostają jako historia – np. `zakupy.js` wrócił w 7.11 (lista zakupów z przepisu), `kalkulator.js` usunięty w 8.5.1.
+Stan wg repozytorium: wersja 8.5.2, interfejs EN/PL/DE, 160 testów jednostkowych i 9 przeglądarkowych (GitHub Actions przy każdym pushu). Szczegóły i uzasadnienia decyzji: `AUDYT.md`. Starsze wpisy niżej zostają jako historia – np. `zakupy.js` wrócił w 7.11 (lista zakupów z przepisu), `kalkulator.js` usunięty w 8.5.1.
 
 
 ## 8.0 – wersja międzynarodowa (20.11.2026)

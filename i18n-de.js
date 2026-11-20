@@ -187,6 +187,8 @@ var I18N_DE = {
 "Objętość partii": "Ansatzvolumen",
 "Notatka": "Notiz",
 "np. woda RO": "z. B. Osmosewasser",
+"Tabela – przewiń w bok": "Tabelle – seitlich scrollen",
+"Zgodność": "Übereinstimmung",
 "Składnik": "Nährstoff",
 "Odważ": "Abwiegen",
 "Rozpuść w {0} ml, uzupełnij do {1} ml.": "In {0} ml auflösen, auf {1} ml auffüllen.",

@@ -1,6 +1,13 @@
 # DoseMyTank (dawniej Akwarysta) – audyt i plan rozwoju (v4.0 PRO, 17.11.2026; historia v3.0 niżej)
 
 
+## Wersja 8.5.2 – dostępność, druga runda (21.11.2026)
+- Sprawdzenie axe-core wszystkich ekranów w EN, PL i DE (jasny i ciemny motyw, 360 px) oraz wszystkich stron informacyjnych – bez uwag po poprawkach:
+  - tabele przewijane w bok (`.tscroll`, `.kx-scroll`) dostają `tabindex`, `role="region"` i etykietę tylko wtedy, gdy się nie mieszczą (sprawdzane na bieżąco po każdej zmianie ekranu);
+  - Odpowiednik z soli: niewidoczne nagłówki pierwszej i ostatniej kolumny („Składnik”, „Zgodność”);
+  - drugi baner wersji językowej na stronach startowych też jako `<aside>`.
+- `.sr-only` w pełnej postaci (margin −1 px, bez ramki) i `.tscroll` z `position: relative` – ukryty tekst nie poszerza strony na wąskim ekranie.
+
 ## Wersja 8.5.1 – poprawki z audytu 8.5 (20.11.2026)
 - Język przy pierwszym uruchomieniu: `app.html` wybiera język tak samo jak `i18n.js` (cała lista `navigator.languages`, dane `akwa.v2–v4` → PL). Wcześniej np. przeglądarka „fr, de” dawała niemiecki interfejs bez niemieckiego słownika i angielski manifest.
 - Słowniki tylko dla potrzebnego języka: PL bez słownika, EN – `i18n-en.js`, DE – oba; przy zmianie języka brakujące są dociągane (`setLang`).

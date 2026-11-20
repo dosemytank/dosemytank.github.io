@@ -153,7 +153,7 @@ with sync_playwright() as p:
         ctx.close()
     b.close()
 # 4) polska wersja bez zmian: tekst wszystkich ekranów (pusty stan i dane przykładowe) identyczny z wersją 7.17 sprzed i18n
-#    8.5.1: ekrany kalkulatora mają niewidoczny nagłówek h1 „Kalkulator” (czytniki ekranu) – dopisany w fixture
+#    8.5.1: ekrany kalkulatora mają niewidoczny nagłówek h1 „Kalkulator” (czytniki ekranu) – dopisany w fixture; Odpowiednik – niewidoczne nagłówki kolumn „Składnik” i „Zgodność”
 #    (poza ekranem Ustawień, do którego w 8.0 doszły język i kontakt)
 import subprocess
 out = os.path.join(SHOTS, 'ekrany-pl.json')

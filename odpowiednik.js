@@ -54,7 +54,7 @@ PAGES['nawozy/odpowiednik'] = root => {
     const pct = d => d.dev == null ? tl('dodatkowo') : Math.abs(d.dev) < 0.005 ? tl('tak samo') : `${d.dev > 0 ? '+' : '−'}${fnum(Math.abs(d.dev) * 100, 0)}%`;
     const main = r.diff.filter(d => !d.side), side = r.diff.filter(d => d.side);
     out.append(card(tl('Oryginał a odpowiednik'), 'chart', h('div', { class: 'sub' }, powder ? tl('g na kg') : tl('g/l (= mg/l w akwarium na 1 ml w 1 l)')),
-      h('div', { html: table(['', tl('Oryginał'), tl('Odpowiednik'), ''], [...main, ...side].map(d => [ionL(d.k) + (d.side ? (' ' + '<small>' + tl('jon towarzyszący') + '</small>') : ''), gfmt(d.orig), gfmt(d.clone),
+      h('div', { html: table([`<span class="sr-only">${tl('Składnik')}</span>`, tl('Oryginał'), tl('Odpowiednik'), `<span class="sr-only">${tl('Zgodność')}</span>`], [...main, ...side].map(d => [ionL(d.k) + (d.side ? (' ' + '<small>' + tl('jon towarzyszący') + '</small>') : ''), gfmt(d.orig), gfmt(d.clone),
         { v: pct(d), big: d.dev != null && Math.abs(d.dev) > 0.05 ? 1 : 0 }])) }),
       h('div', { html: r.match ? alertH('ok', tl('Składniki odżywcze odtworzone (±5%).')) : alertH('warn', tl('Nie wszystko da się odtworzyć prostymi solami – różnice w tabeli.{0}', main.some(d => d.k === 'NO3' && d.dev < -0.05) && !st.nh4 ? tl(' Producent ma pewnie część azotu jako amon lub mocznik – zaznacz „Pozwól na azotan amonu”.') : '')) }),
       r.unsupported.length ? h('div', { class: 'note' }, tl('Pominięte (brak prostej soli): {0}.', r.unsupported.map(ionL).join(', '))) : null,

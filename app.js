@@ -98,6 +98,14 @@ window.addEventListener('hashchange', render);
 /* 7.13: paski przewijane w bok (zakładki kalkulatora, filtry dziennika) – zanikanie przy krawędzi, za którą jest jeszcze treść; aktywna zakładka zawsze widoczna */
 const SCROLLERS = '.kx-nav,.chips.scroll';
 function fadeOne(el) { const r = el.scrollWidth - el.clientWidth - el.scrollLeft; el.classList.toggle('fade-l', el.scrollLeft > 4); el.classList.toggle('fade-r', r > 4); }
+/* 8.5.1: tabele przewijane w bok dostępne z klawiatury – tabindex tylko wtedy, gdy tabela faktycznie się nie mieści (wyniki przeliczają się na bieżąco) */
+let tabFix = 0;
+function scrollTabs() { tabFix = 0; document.querySelectorAll('#main .tscroll, #main .kx-scroll').forEach(el => { const over = el.scrollWidth > el.clientWidth + 1;
+  if (over && !el.hasAttribute('tabindex')) { el.tabIndex = 0; el.setAttribute('role', 'region'); el.setAttribute('aria-label', tl('Tabela – przewiń w bok')); }
+  else if (!over && el.hasAttribute('tabindex')) { el.removeAttribute('tabindex'); el.removeAttribute('role'); el.removeAttribute('aria-label'); } }); }
+const queueTabs = () => { if (!tabFix) tabFix = requestAnimationFrame(scrollTabs); };
+if (typeof MutationObserver !== 'undefined' && document.getElementById('main')) new MutationObserver(queueTabs).observe(document.getElementById('main'), { childList: true, subtree: true });
+window.addEventListener('resize', queueTabs);
 function scrollFade(root) { root.querySelectorAll(SCROLLERS).forEach(el => { const on = el.querySelector('.on'); if (on && !el.dataset.sf) { el.dataset.sf = '1'; const x = on.offsetLeft + on.offsetWidth - el.clientWidth + 24; if (x > 0) el.scrollLeft = x; } fadeOne(el); }); }
 document.addEventListener('scroll', e => { if (e.target.matches && e.target.matches(SCROLLERS)) fadeOne(e.target); }, true);
 window.addEventListener('resize', () => scrollFade(document));
