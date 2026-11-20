@@ -71,9 +71,11 @@ ol.steps li>div{flex:1;min-width:0}
 
 /* wyniki */
 table.t{width:100%;border-collapse:collapse;font-size:15px}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
 table.t th{font-size:12px;font-weight:600;color:var(--mut);text-align:right;padding:6px 4px}
 table.t td{padding:10px 4px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
 table.t td:first-child{white-space:normal}
+@media(max-width:400px){table.t td:last-child:not(:first-child){white-space:normal}} /* 8.5.1: opis w ostatniej kolumnie (np. „tak samo”) może się zawinąć na wąskim ekranie */
 table.t th:first-child,table.t td:first-child{text-align:left}
 table.t tr:last-child td{border-bottom:0}
 table.t td.big{font-weight:700;font-size:16px}

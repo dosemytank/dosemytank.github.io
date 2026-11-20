@@ -55,7 +55,8 @@ function rbar(label, val, range, unit = tl('mg/l'), note = '') {
   return `<div class="rb ${cls}"><div class="rb-h"><span>${label}<em>${lo > 0 ? lo + '–' : '≤ '}${hi} ${unit}${note}</em></span><span><b>${gfmt(val)}</b> <small>${unit}</small> <span class="st">${st}</span></span></div>
   <div class="rb-t"><div class="rb-ok" style="left:${lo / max * 100}%;width:${(hi - lo) / max * 100}%"></div>${val > 0 ? `<div class="rb-m" style="left:${pos}%"></div>` : ''}</div></div>`;
 }
-const table = (head, rows, cls = '') => `<table class="t ${cls}"><tr>${head.map(x => `<th>${x}</th>`).join('')}</tr>${rows.map(r => `<tr>${r.map(c => { const o = c !== null && typeof c === 'object'; return `<td${o && c.big ? ' class="big"' : ''}>${o ? c.v : c}</td>`; }).join('')}</tr>`).join('')}</table>`;
+// 8.5.1: tabela w pojemniku przewijanym w bok – przy szerokiej czcionce i 360 px nie rozpycha strony
+const table = (head, rows, cls = '') => `<div class="tscroll"><table class="t ${cls}"><tr>${head.map(x => `<th>${x}</th>`).join('')}</tr>${rows.map(r => `<tr>${r.map(c => { const o = c !== null && typeof c === 'object'; return `<td${o && c.big ? ' class="big"' : ''}>${o ? c.v : c}</td>`; }).join('')}</tr>`).join('')}</table></div>`;
 // kafelki wyników: [{ k, l, v, sub, hl }] – składnik, wartość główna, podpis, wyróżnienie
 // krótka etykieta, objaśnienie po dotknięciu
 const whyH = (label, text) => `<details class="why"><summary>${label}</summary><p>${text}</p></details>`;

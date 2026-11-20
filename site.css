@@ -193,3 +193,5 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;bac
 .top .langs .lang+.lang{border-left:1px solid var(--line);border-radius:0 999px 999px 0}
 @media(max-width:400px){.top .langs .lang{padding:4px 5px;font-size:13px}}
 @media(max-width:380px){.top .brand{font-size:16.5px;gap:7px}}
+/* 8.5.1: szersze czcionki systemowe (np. DejaVu) przy 360 px – przycisk aplikacji może przejść do dwóch linii zamiast wypychać stronę w bok */
+@media(max-width:400px){.top .btn.sm{flex:0 1 auto;min-width:0;text-align:center;font-size:14px}.top .brand{min-width:0}}

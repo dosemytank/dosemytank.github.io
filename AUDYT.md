@@ -10,6 +10,7 @@
 - Service worker: przy słabym zasięgu po 3 s odpowiada kopia z pamięci, świeży plik zapisuje się na następny raz.
 - Dostępność: niewidoczny nagłówek h1 na ekranach bez tytułu, pełny kontrast podpisów w kartach wyboru, paski zdjęć i zrzutów na stronach startowych dostępne z klawiatury, baner innej wersji językowej jako `<aside>`.
 - Porządki: przywrócone GitHub Actions (`.github/workflows/test.yml`: `npm test` i testy przeglądarkowe, zrzuty jako artefakt); usunięty martwy `kalkulator.js`; 8 nieużywanych tekstów usuniętych ze słowników EN/DE (stare szablony zgłoszeń z GitHuba); README bez linku do GitHub Issues.
+- Wąskie ekrany (360 px) z szerszą czcionką systemową (wykryte w GitHub Actions – Ubuntu, DejaVu Sans): tabele wyników w pojemniku przewijanym w bok (`.tscroll`), przycisk „Otwórz aplikację” w nagłówku stron może przejść do dwóch linii. Wcześniej strona przewijała się w poziomie (Odpowiednik z soli, polska strona startowa).
 
 ## Wersja 8.4.1 – licznik odwiedzin (20.11.2026)
 - Cloudflare Web Analytics (bez ciasteczek) na stronach informacyjnych EN/PL i 404; aplikacja (app.html) bez licznika. Poprawione zdania o prywatności na stronach startowych i w O aplikacji.
